@@ -10,36 +10,43 @@
         .left-panel {
             background-color: #45DFBE;
             height: 100%;
+            padding: 50px;
         }
         .right-panel {
             background-color: #FFFFFF;
             height: 100%;
+        }
+        .option-tab {
         }
     </style>
     <div class="top-section">
     <div class="row">
       <div class="col-md-4 left-panel">
         <div center horizontal layout>
+            <div flex><h2>EDGE</h2></div>
+        </div>
+        </br>
+        <div center horizontal layout class="option-tab">
             <div flex> Community Gardens </div>
             <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
         </div> 
             </br>
-        <div center horizontal layout>
+        <div center horizontal layout class="option-tab">
             <div flex> Farmers Markets </div>
             <paper-toggle-button role="button" aria-pressed="{{markets_selected}}"></paper-toggle-button>
         </div> 
             </br>
-        <div center horizontal layout>
+        <div center horizontal layout class="option-tab">
             <div flex> Health Facility Proximity </div>
             <paper-toggle-button role="button" aria-pressed="{{health_selected}}"></paper-toggle-button>
         </div> 
             </br>
-        <div center horizontal layout>
+        <div center horizontal layout class="option-tab">
             <div flex> Rent Burden </div>
             <paper-toggle-button role="button" aria-pressed="{{rentburden_selected}}"></paper-toggle-button>
         </div> 
             </br>
-        <div center horizontal layout>
+        <div center horizontal layout class="option-tab">
             <div flex> Transit Frequency </div>
             <paper-toggle-button role="button" aria-pressed="{{transit_selected}}"></paper-toggle-button>
         </div>
