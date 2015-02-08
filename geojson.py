@@ -3,13 +3,33 @@ import scipy.stats
 from math import sin, cos, sqrt, atan2, radians
 
 
+"""
+Runs all functions and starts from a new file
+"""
+def runAll():
+	firstBlockJson()
+	addMinLocations()
+	addData2()
+
+"""
+Loads a geojson file
+"""
 def loadJson(filename):
 	json_data = open('static/data/'+filename)
 	data = json.load(json_data)
 	json_data.close()
 	return data
 
-def firstBlockJson(data):
+"""
+Function creates the json file and populates with asthma rate data
+Asthma Rate
+Numbers roughly range from 1-16
+Assumed to be population with asthma, numbers match up to data at http://www.californiabreathing.org/asthma-data/county-asthma-profiles/san-francisco-county-asthma-profile
+Normalized curve and then inverted percentile
+Summary: Lower asthma rate => higher percentile
+"""
+def firstBlockJson():
+	data = loadJson('AsthmaRates_CB00.json')
 	features = data['features']
 	blockMap = []
 	for each in features:
@@ -34,12 +54,19 @@ def firstBlockJson(data):
 		for key in keys:
 			format = key
 			if key != 'BLOCKGROUP':
-				jsonDict[each['BLOCKGROUP']] = [scipy.stats.percentileofscore(values,each[key])/100.0]
+				jsonDict[each['BLOCKGROUP']] = [1-scipy.stats.percentileofscore(values,each[key])/100.0]
 	returnDict['data'] = jsonDict
 	returnDict['format'] = [format]
 	with open('static/data/SF.json', 'w') as outfile:
 		json.dump(returnDict, outfile)
 
+"""
+SF Rent Affordability given by the estimated median income necessary to live in the neighborhood
+Formula to obtain the estimated median income unknown, provided by data.sfgov.org
+Because the goal is to help find affordable housing, we catered towards low income individuals
+Therefore we inverted the percentile scores
+Summary: Low median income necessary => High Score
+"""
 def SFRentAffordability():
 	data = loadJson('SanFranciscoRentAffordability.json')
 	features = data['features']
@@ -51,10 +78,11 @@ def SFRentAffordability():
 			featureDict['polygon'] = each['geometry']['coordinates'][0]
 			income = each['properties']['MedInc_d']
 			if income == None:
-				featureDict['income'] = float("60000")
+				income = "60000"
+				featureDict['income'] = float(income.replace(',',''))
 			else:
 				featureDict['income'] = float(income.replace(',',''))
-			values.append(income)
+			values.append(float(income.replace(',','')))
 			featureMap.append(featureDict)
 		else:
 			polygons = each['geometry']['coordinates'][0]
@@ -62,13 +90,13 @@ def SFRentAffordability():
 				featureDict['polygon'] = polygon
 				income = each['properties']['MedInc_d']
 				if income == None:
-					featureDict['income'] = float("60000")
+					income = "60000"
+					featureDict['income'] = float(income.replace(',',''))
 				else:
 					featureDict['income'] = float(income.replace(',',''))
-				values.append(income)
+				values.append(float(income.replace(',','')))
 				featureMap.append(featureDict)
-			values.append(income)
-
+			values.append(float(income.replace(',','')))
 	for each in featureMap:
 		income = each['income']
 		each['income'] = 1-scipy.stats.percentileofscore(values,income)/100.0
@@ -80,8 +108,19 @@ def SFRentAffordability():
 			if point_in_poly(coord[0], coord[1], each['polygon'])=="IN":
 				# print "In!"
 				block['income'] = each['income']
+				break
+		if 'income' not in block.keys():
+			block['income'] = 0.5
 	return jsonData
 
+"""
+Air quality determined by MaxPM2.5
+Information on PM2.5 found at http://www.epa.gov/pmdesignations/faq.htm#0
+Numbers range from 1-7
+Normalized curve and inverted curve so that lower PM2.5 was a higher score
+Summary: Lower PM2.5 => Higher score
+Note: We normalized to provide relative data, but all of SF has great air quality
+"""
 def AirQuality():
 	data = loadJson('AirQuality_CB00.json')
 	features = data['features']
@@ -94,10 +133,18 @@ def AirQuality():
 
 	for key in featureMap:
 		value = featureMap[key]
-		featureMap[key] = scipy.stats.percentileofscore(valueArray,value)/100.0
+		featureMap[key] = 1-scipy.stats.percentileofscore(valueArray,value)/100.0
 
 	return featureMap
 
+"""
+Population density as population by square mile
+Numbers vary from a 1000s to 100000s
+Impact of high density on page 33: http://hiaconnect.edu.au/wp-content/uploads/2013/04/housing_density_HIA_review1.pdf
+Although study in New Zealand, a generalization is that high density is bad
+Normalized curve and inverted
+Summary: Lower density => Higher Score
+"""
 def PopulationDensity():
 	data = loadJson('PopulationDensity_CB00.json')
 	features = data['features']
@@ -114,6 +161,13 @@ def PopulationDensity():
 
 	return featureMap
 
+"""
+Poverty as poverty percent taken to mean the percent of population below the poverty line
+Percentages vary from 0-100, most range from 1-40 percent roughly
+Normalized curve accounts for outliers of cases where the percent is 100
+Inverted the percentiles
+Summary: Lower poverty => Higher score
+"""
 def Poverty():
 	data = loadJson('Poverty_CB00.json')
 	features = data['features']
@@ -130,6 +184,9 @@ def Poverty():
 
 	return featureMap
 
+"""
+Formula from: http://geospatialpython.com/2011/08/point-in-polygon-2-on-line.html
+"""
 def point_in_poly(x,y,poly):
 
    # check if point is a vertex
@@ -165,6 +222,9 @@ def point_in_poly(x,y,poly):
    if inside: return "IN"
    else: return "OUT"
 
+"""
+Maps each blockid to its centroid
+"""
 def parseBlocks(json):
 	features = json['features']
 	blocksArray = []
@@ -175,6 +235,9 @@ def parseBlocks(json):
 		blocksArray.append(blocksDict)
 	return blocksArray
 
+"""
+Adds poverty, popdensity, airquality, affordability
+"""
 def addData2():
 	currJson = loadJson('SF.json')	
 	poverty = Poverty()
@@ -201,6 +264,9 @@ def addData2():
 	with open('static/data/SF.json', 'w') as outfile:
 		json.dump(currJson, outfile)
 
+"""
+Adds closest healthfacility, closest garden and closest market
+"""
 def addMinLocations():
 	facilities = SFHealthFacilities()
 	gardens = SFGardens()
@@ -226,6 +292,15 @@ def addMinLocations():
 	with open('static/data/SF.json', 'w') as outfile:
 		json.dump(currJson, outfile)
 
+"""
+List of SF Health Facilities as given by data.sfgov.org
+For each block we calculated a centroid of the polygon
+Found the minimum distance, aka the closest health facility
+Created a standard curve of each block's closest health facility and ranked each block as a percentile
+The closer the nearest health facility the better
+Inverted the percentile score
+Summary: Close distance => High Score
+"""
 def SFHealthFacilities():
 	jsonData = parseBlocks(loadJson('AsthmaRates_CB00.json'))
 	healthFacilities = loadJson('SanFranciscoHealthFacilities.json')
@@ -246,10 +321,15 @@ def SFHealthFacilities():
 		distanceArray.append(block['closestHospital'])
 
 	for block in jsonData:
-		block['closest'] = scipy.stats.percentileofscore(distanceArray,block['closestHospital'])/100.0
+		block['closest'] = 1-scipy.stats.percentileofscore(distanceArray,block['closestHospital'])/100.0
 
 	return jsonData
 
+"""
+List of SF Community Gardens as given by data.sfgov.org
+Same methodology as health facilities
+Summary: Close distance => High Score
+"""
 def SFGardens():
 	jsonData = parseBlocks(loadJson('AsthmaRates_CB00.json'))
 	gardens = loadJson('SanFranciscoCommunityGardens.json')
@@ -270,10 +350,17 @@ def SFGardens():
 		distanceArray.append(block['closestGarden'])
 
 	for block in jsonData:
-		block['closest'] = scipy.stats.percentileofscore(distanceArray,block['closestGarden'])/100.0
+		block['closest'] = 1-scipy.stats.percentileofscore(distanceArray,block['closestGarden'])/100.0
 
 	return jsonData
 
+"""
+List of SF Farmers Markets as given by data.sfgov.org
+Same methodology as health facilities
+Indication that farmers markets may be beneficial for low-income communities: http://depts.washington.edu/uwcphn/reports/fm_brief.pdf
+Most SF Farmers Markets accept EBT: http://www.sfhsa.org/156.htm
+Summary: Close distance => High Score
+"""
 def SFFarmersMarkets():
 	jsonData = parseBlocks(loadJson('AsthmaRates_CB00.json'))
 	markets = loadJson('SanFranciscoFarmersMarkets.json')
@@ -294,11 +381,15 @@ def SFFarmersMarkets():
 		distanceArray.append(block['closestMarket'])
 
 	for block in jsonData:
-		block['closest'] = scipy.stats.percentileofscore(distanceArray,block['closestMarket'])/100.0
+		block['closest'] = 1- scipy.stats.percentileofscore(distanceArray,block['closestMarket'])/100.0
 
 
 	return jsonData
 
+"""
+Implementation of haversine formula based on:
+http://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude-python
+"""
 def distanceBetweenPoints(point1, point2):
 	R = 6373.0
 
@@ -314,6 +405,10 @@ def distanceBetweenPoints(point1, point2):
 	distance = R * c
 	return distance*1000
 
+"""
+Implementation of centroid of polygon formula found at:
+http://en.wikipedia.org/wiki/Centroid#By_geometric_decomposition
+"""
 def polygonCentroid(coordinates):
 	xArray = []
 	yArray = []
