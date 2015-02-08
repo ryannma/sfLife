@@ -1,58 +1,776 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
-"features": [
-{ "type": "Feature", "properties": { "Name": "25th & DeHaro Community Garden", "Address": "25th Street & DeHaro Street", "Manager": "Private" }, "geometry": { "type": "Point", "coordinates": [ -122.400413917969601, 37.752076669930247 ] } },
-{ "type": "Feature", "properties": { "Name": "Adam Rogers Community Garden", "Address": "1220 Oakdale Avenue", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.382784160535124, 37.730352427627096 ] } },
-{ "type": "Feature", "properties": { "Name": "Alemany Farm", "Address": "700 Alemany Boulevard", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.420108011263395, 37.732287463391529 ] } },
-{ "type": "Feature", "properties": { "Name": "Alemany RMC Garden", "Address": "Murray Street & Justin Drive", "Manager": "SFHA" }, "geometry": { "type": "Point", "coordinates": [ -122.422402543864791, 37.733833824581637 ] } },
-{ "type": "Feature", "properties": { "Name": "Alioto Mini Park Community Garden", "Address": "Capp Street & 20th Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.417956658790985, 37.758703134916971 ] } },
-{ "type": "Feature", "properties": { "Name": "All In Common Community Garden", "Address": "23rd Street & Folsom Street", "Manager": "Private" }, "geometry": { "type": "Point", "coordinates": [ -122.414233174510755, 37.754101175571392 ] } },
-{ "type": "Feature", "properties": { "Name": "Argonne Community Garden", "Address": "750 15th Avenue", "Manager": "SFUSD" }, "geometry": { "type": "Point", "coordinates": [ -122.473506264081252, 37.773936002109984 ] } },
-{ "type": "Feature", "properties": { "Name": "Arkansas Friendship Community Garden", "Address": "22nd Street & Arkansas Street", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.39798361910357, 37.757365356153038 ] } },
-{ "type": "Feature", "properties": { "Name": "Arlington Community Garden", "Address": "Arlington Street & Highland Avenue", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.425573080477761, 37.737789191757827 ] } },
-{ "type": "Feature", "properties": { "Name": "Bernal Heights Community Garden", "Address": "Bernal Heights Boulevard & Gates Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "Brooks Park Community Garden", "Address": "Ramsell Street & Shields Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.466281692181411, 37.717941010975743 ] } },
-{ "type": "Feature", "properties": { "Name": "Candlestick Point Community Garden", "Address": "Carroll Avenue & Fitch Street", "Manager": "CSP" }, "geometry": { "type": "Point", "coordinates": [ -122.384173282255347, 37.719689041945514 ] } },
-{ "type": "Feature", "properties": { "Name": "Central YMCA Rooftop Community Garden", "Address": "220 Golden Gate Avenue", "Manager": "Private" }, "geometry": { "type": "Point", "coordinates": [ -122.414226503530813, 37.781872920302128 ] } },
-{ "type": "Feature", "properties": { "Name": "Clipper Street Community Garden", "Address": "Clipper Street & Grand View Avenue", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.442509361003701, 37.74821940688912 ] } },
-{ "type": "Feature", "properties": { "Name": "Connecticut Friendship Community Garden", "Address": "22nd Street & Connecticut Street", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "Corona Heights Community Garden", "Address": "States Street & Museum Way", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "Corwin Street Community Garden", "Address": "Corwin Street & Douglass Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.43904897310837, 37.757053207994844 ] } },
-{ "type": "Feature", "properties": { "Name": "Crags Court Community Garden", "Address": "Crags Street & Berkeley Way", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.439610839847646, 37.740330971404887 ] } },
-{ "type": "Feature", "properties": { "Name": "Crocker Amazon Community Garden", "Address": "Moscow Street & Geneva Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.433746909523805, 37.713120547620761 ] } },
-{ "type": "Feature", "properties": { "Name": "Dearborn Community Garden", "Address": "Dearborn Street & Bird Street", "Manager": "TBD" }, "geometry": { "type": "Point", "coordinates": [ -122.422937655276272, 37.762230411933231 ] } },
-{ "type": "Feature", "properties": { "Name": "Double Rock Community Garden", "Address": "Griffith Street & Fitzgerald Street", "Manager": "Alice Griffith Housing Development" }, "geometry": { "type": "Point", "coordinates": [ -122.387669343775755, 37.718792731034476 ] } },
-{ "type": "Feature", "properties": { "Name": "Fort Mason Community Garden", "Address": "Bay Street & Franklin Street", "Manager": "Golden Gate National Recreation Association" }, "geometry": { "type": "Point", "coordinates": [ -122.426745865989417, 37.803951277864499 ] } },
-{ "type": "Feature", "properties": { "Name": "Garden for the Environment", "Address": "7th Avenue & Lawton Street", "Manager": "PUC" }, "geometry": { "type": "Point", "coordinates": [ -122.463780046079691, 37.758555978883727 ] } },
-{ "type": "Feature", "properties": { "Name": "Golden Gate Senior Center Community Garden", "Address": "6101 Fulton Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.49643877986297, 37.771948780551291 ] } },
-{ "type": "Feature", "properties": { "Name": "Good Prospect Community Garden", "Address": "Prospect Street & Cortland Avenue", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.420855179044324, 37.740219489760086 ] } },
-{ "type": "Feature", "properties": { "Name": "Hooker Alley\/Nob Hill Community Garden", "Address": "Mason Street & Pine Street", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.410634548199852, 37.790885636668044 ] } },
-{ "type": "Feature", "properties": { "Name": "Howard Langton Community Garden", "Address": "Howard Street & Langton Alley", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.409947822204998, 37.777530143625732 ] } },
-{ "type": "Feature", "properties": { "Name": "Howard Street Community Garden", "Address": "Howard Street & 12th Street", "Manager": "Tenderloin Neighborhood Commission" }, "geometry": { "type": "Point", "coordinates": [ -122.416922109684279, 37.771728642734402 ] } },
-{ "type": "Feature", "properties": { "Name": "KidPower Park Community Garden", "Address": "45 Hoff Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.42049668838186, 37.764124541286058 ] } },
-{ "type": "Feature", "properties": { "Name": "Koshland Park Community Learning Garden", "Address": "Page Street & Buchanan Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.427374621966493, 37.773454377463381 ] } },
-{ "type": "Feature", "properties": { "Name": "La Grande Community Garden", "Address": "Dublin Street & Russia Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.427628800085884, 37.717026863182888 ] } },
-{ "type": "Feature", "properties": { "Name": "Lessing\/Sears Mini Park Community Garden", "Address": "Lessing Street & Sears Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "McLaren park Community Garden", "Address": "Leland Avenue & Hahn Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.414902063325329, 37.714578727478909 ] } },
-{ "type": "Feature", "properties": { "Name": "Michelangelo Playground Community Garden", "Address": "Greenwich Street & Jones Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.416155115705934, 37.801480845142549 ] } },
-{ "type": "Feature", "properties": { "Name": "Miller Memorial Grove\/Dogpatch Community Garden", "Address": "Brewster Street & Rutledge Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.406509730889937, 37.74523616053942 ] } },
-{ "type": "Feature", "properties": { "Name": "Mission Creek Community Garden", "Address": "300 Channel Street", "Manager": "SF Port Authority" }, "geometry": { "type": "Point", "coordinates": [ -122.393736853326089, 37.772808321505423 ] } },
-{ "type": "Feature", "properties": { "Name": "New Liberation Community Garden", "Address": "Divisidero Street & Eddy Street", "Manager": "Private" }, "geometry": { "type": "Point", "coordinates": [ -122.438883979723201, 37.780589198275578 ] } },
-{ "type": "Feature", "properties": { "Name": "Noe Beaver Community Garden", "Address": "Noe Street & Beaver Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.433202878618189, 37.765106636673096 ] } },
-{ "type": "Feature", "properties": { "Name": "Ogden Terrace Community Garden", "Address": "Ogden Street & Prentiss Street", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.412342446777288, 37.735836034156904 ] } },
-{ "type": "Feature", "properties": { "Name": "Page Street Community Garden", "Address": "Page Street & Buchanan Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.427374621966493, 37.773454377463381 ] } },
-{ "type": "Feature", "properties": { "Name": "Park Street Community Garden", "Address": "Park Street & San Jose Avenue", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "Potrero Del Sol Community Garden", "Address": "Potrero Avenue & Cesar Chavez Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } },
-{ "type": "Feature", "properties": { "Name": "Potrero Hill Community Garden", "Address": "20th Street & San Bruno Avenue", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.40499358078543, 37.759519180527597 ] } },
-{ "type": "Feature", "properties": { "Name": "Rose\/Page Community Garden", "Address": "Page Street & Laguna Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.425711316262749, 37.773663962716817 ] } },
-{ "type": "Feature", "properties": { "Name": "Sunset Community Garden", "Address": "37th Avenue & Pacheco Street", "Manager": "SFUSD" }, "geometry": { "type": "Point", "coordinates": [ -122.495516620758508, 37.749668668018735 ] } },
-{ "type": "Feature", "properties": { "Name": "Telegraph Hill Neighborhood Center Community Garden", "Address": "660 Lombard Street", "Manager": "Unknown" }, "geometry": { "type": "Point", "coordinates": [ -122.412448091625976, 37.802960732895009 ] } },
-{ "type": "Feature", "properties": { "Name": "Treat Commons Community Garden at Parque Ninos Unidos", "Address": "23rd Street & Treat Avenue", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.413136195022275, 37.754159145737468 ] } },
-{ "type": "Feature", "properties": { "Name": "Victoria Manalo Draves Community Garden", "Address": "Folsom Street & Sherman Street", "Manager": "RPD" }, "geometry": { "type": "Point", "coordinates": [ -122.407013626890546, 37.777409743491596 ] } },
-{ "type": "Feature", "properties": { "Name": "Visitacion Valley Greenway Community Garden", "Address": "139 Arleta Street", "Manager": "PUC" }, "geometry": { "type": "Point", "coordinates": [ -122.405648963227506, 37.71344936513109 ] } },
-{ "type": "Feature", "properties": { "Name": "White Crane Springs Community Garden", "Address": "190 Locksley Avenue", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.462729202288045, 37.757079541114528 ] } },
-{ "type": "Feature", "properties": { "Name": "Wolge Lane Community Garden", "Address": "Rutledge Street & Mullens Street", "Manager": "DPW" }, "geometry": { "type": "Point", "coordinates": [ -122.419163735653399, 37.77503515523604 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "25th & DeHaro Community Garden",
+        "Address": "25th Street & DeHaro Street",
+        "Manager": "Private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40041391797,
+          37.75207666993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Adam Rogers Community Garden",
+        "Address": "1220 Oakdale Avenue",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.38278416054,
+          37.730352427627
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Alemany Farm",
+        "Address": "700 Alemany Boulevard",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42010801126,
+          37.732287463392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Alemany RMC Garden",
+        "Address": "Murray Street & Justin Drive",
+        "Manager": "SFHA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42240254386,
+          37.733833824582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Alioto Mini Park Community Garden",
+        "Address": "Capp Street & 20th Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41795665879,
+          37.758703134917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "All In Common Community Garden",
+        "Address": "23rd Street & Folsom Street",
+        "Manager": "Private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41423317451,
+          37.754101175571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Argonne Community Garden",
+        "Address": "750 15th Avenue",
+        "Manager": "SFUSD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.47350626408,
+          37.77393600211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Arkansas Friendship Community Garden",
+        "Address": "22nd Street & Arkansas Street",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3979836191,
+          37.757365356153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Arlington Community Garden",
+        "Address": "Arlington Street & Highland Avenue",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42557308048,
+          37.737789191758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Bernal Heights Community Garden",
+        "Address": "Bernal Heights Boulevard & Gates Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Brooks Park Community Garden",
+        "Address": "Ramsell Street & Shields Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46628169218,
+          37.717941010976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Candlestick Point Community Garden",
+        "Address": "Carroll Avenue & Fitch Street",
+        "Manager": "CSP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.38417328226,
+          37.719689041946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Central YMCA Rooftop Community Garden",
+        "Address": "220 Golden Gate Avenue",
+        "Manager": "Private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41422650353,
+          37.781872920302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Clipper Street Community Garden",
+        "Address": "Clipper Street & Grand View Avenue",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.442509361,
+          37.748219406889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Connecticut Friendship Community Garden",
+        "Address": "22nd Street & Connecticut Street",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corona Heights Community Garden",
+        "Address": "States Street & Museum Way",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corwin Street Community Garden",
+        "Address": "Corwin Street & Douglass Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43904897311,
+          37.757053207995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Crags Court Community Garden",
+        "Address": "Crags Street & Berkeley Way",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43961083985,
+          37.740330971405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Crocker Amazon Community Garden",
+        "Address": "Moscow Street & Geneva Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43374690952,
+          37.713120547621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Dearborn Community Garden",
+        "Address": "Dearborn Street & Bird Street",
+        "Manager": "TBD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42293765528,
+          37.762230411933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Double Rock Community Garden",
+        "Address": "Griffith Street & Fitzgerald Street",
+        "Manager": "Alice Griffith Housing Development"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.38766934378,
+          37.718792731034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Fort Mason Community Garden",
+        "Address": "Bay Street & Franklin Street",
+        "Manager": "Golden Gate National Recreation Association"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42674586599,
+          37.803951277864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Garden for the Environment",
+        "Address": "7th Avenue & Lawton Street",
+        "Manager": "PUC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46378004608,
+          37.758555978884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Golden Gate Senior Center Community Garden",
+        "Address": "6101 Fulton Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.49643877986,
+          37.771948780551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Good Prospect Community Garden",
+        "Address": "Prospect Street & Cortland Avenue",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42085517904,
+          37.74021948976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hooker Alley\/Nob Hill Community Garden",
+        "Address": "Mason Street & Pine Street",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4106345482,
+          37.790885636668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Howard Langton Community Garden",
+        "Address": "Howard Street & Langton Alley",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4099478222,
+          37.777530143626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Howard Street Community Garden",
+        "Address": "Howard Street & 12th Street",
+        "Manager": "Tenderloin Neighborhood Commission"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41692210968,
+          37.771728642734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "KidPower Park Community Garden",
+        "Address": "45 Hoff Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42049668838,
+          37.764124541286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Koshland Park Community Learning Garden",
+        "Address": "Page Street & Buchanan Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42737462197,
+          37.773454377463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "La Grande Community Garden",
+        "Address": "Dublin Street & Russia Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42762880009,
+          37.717026863183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Lessing\/Sears Mini Park Community Garden",
+        "Address": "Lessing Street & Sears Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "McLaren park Community Garden",
+        "Address": "Leland Avenue & Hahn Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41490206333,
+          37.714578727479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Michelangelo Playground Community Garden",
+        "Address": "Greenwich Street & Jones Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41615511571,
+          37.801480845143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Miller Memorial Grove\/Dogpatch Community Garden",
+        "Address": "Brewster Street & Rutledge Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40650973089,
+          37.745236160539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Mission Creek Community Garden",
+        "Address": "300 Channel Street",
+        "Manager": "SF Port Authority"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39373685333,
+          37.772808321505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "New Liberation Community Garden",
+        "Address": "Divisidero Street & Eddy Street",
+        "Manager": "Private"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43888397972,
+          37.780589198276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Noe Beaver Community Garden",
+        "Address": "Noe Street & Beaver Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43320287862,
+          37.765106636673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ogden Terrace Community Garden",
+        "Address": "Ogden Street & Prentiss Street",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41234244678,
+          37.735836034157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Page Street Community Garden",
+        "Address": "Page Street & Buchanan Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42737462197,
+          37.773454377463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Park Street Community Garden",
+        "Address": "Park Street & San Jose Avenue",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Potrero Del Sol Community Garden",
+        "Address": "Potrero Avenue & Cesar Chavez Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Potrero Hill Community Garden",
+        "Address": "20th Street & San Bruno Avenue",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40499358079,
+          37.759519180528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Rose\/Page Community Garden",
+        "Address": "Page Street & Laguna Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42571131626,
+          37.773663962717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sunset Community Garden",
+        "Address": "37th Avenue & Pacheco Street",
+        "Manager": "SFUSD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.49551662076,
+          37.749668668019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Telegraph Hill Neighborhood Center Community Garden",
+        "Address": "660 Lombard Street",
+        "Manager": "Unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41244809163,
+          37.802960732895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Treat Commons Community Garden at Parque Ninos Unidos",
+        "Address": "23rd Street & Treat Avenue",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41313619502,
+          37.754159145737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Victoria Manalo Draves Community Garden",
+        "Address": "Folsom Street & Sherman Street",
+        "Manager": "RPD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40701362689,
+          37.777409743492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Visitacion Valley Greenway Community Garden",
+        "Address": "139 Arleta Street",
+        "Manager": "PUC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40564896323,
+          37.713449365131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "White Crane Springs Community Garden",
+        "Address": "190 Locksley Avenue",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46272920229,
+          37.757079541115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Wolge Lane Community Garden",
+        "Address": "Rutledge Street & Mullens Street",
+        "Manager": "DPW"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41916373565,
+          37.775035155236
+        ]
+      }
+    }
+  ]
 }
