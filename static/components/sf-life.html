@@ -37,7 +37,7 @@
              font: 300 1em/1.38 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
         }
         .right-panel {
-            background-color: #FFFFFF;
+            background-color: #FFF2F2;
             height: 100%;
         }
         .option-tab {
@@ -121,12 +121,17 @@
                 </div>
                 <div class="col-md-8 right-panel">
                     <div id="map-title"> SF Housing Livability</div>
-                    <div id="map" style="width: 100%; height: 100%; margin-top:-105px;" class="ok"></div>
+                    <div id="map" style="width: 100%; height: 100%; margin-top:-105px; margin-left:-10px" class="ok"></div>
                 </div>
                 <div id="tooltip"></div>
                 <!-- div to hold tooltip. -->
             </div>
 
+            <div class="row cute legend" style="position: absolute; bottom:200px; right: 15px;">
+                <h3> Legend  </h3> <div style="width:200px; display:flex;">
+                    Our Livability index corresponds to the normalized value of your housing and lifestyle preferences.
+                    </div>
+            </div>
             <div class="row cute" style="position: absolute; bottom:7px; right: 50px;">
                 Data Provided by <a href="https://data.sfgov.org" target="_blank"> SFGOV.org </a> </p>
             </div>
@@ -187,7 +192,9 @@
 
             //var scale = width * 354;
             var scale = (width / 843) * 268000;
+
             var horizontalOffset = width / 1.7;
+               //console.log(horizontalOffset);
             var verticalOffset = height / 3.05;
 
             if (that.$.map.querySelector('svg') != undefined) {
