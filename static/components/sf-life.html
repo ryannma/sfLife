@@ -29,8 +29,12 @@
             /*background-color: #FFFFFF;
             border: antiquewhite 2px solid;*/
 
+            margin-top: -10px;
             border-radius: 4px;
             text-align: center;
+        }
+        .cute {
+             font: 300 1em/1.38 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
         }
         .right-panel {
             background-color: #FFFFFF;
@@ -39,7 +43,12 @@
         .option-tab {
             margin-bottom: 15px;
         }
-
+        #map-title {
+            font: 200 2em/2 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
+            line-height: 1.9;
+            margin: 50px 0px 2px 70px;
+            /*text-align: center;*/
+        }
         #tooltip {
             position: absolute;
             text-align: center;
@@ -50,7 +59,7 @@
             border: 1px;
             border-radius: 2px;
             pointer-events: none;
-             font: 200 .5em/2 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
+            font: 200 .5em/2 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
             line-height: 1.5;
         }
         #tooltip h4 {
@@ -111,11 +120,15 @@
                     </template>
                 </div>
                 <div class="col-md-8 right-panel">
-                    <div id="map" style="width: 100%; height: 100%" class="ok"></div>
+                    <div id="map-title"> SF Housing Livability</div>
+                    <div id="map" style="width: 100%; height: 100%; margin-top:-105px;" class="ok"></div>
                 </div>
                 <div id="tooltip"></div>
                 <!-- div to hold tooltip. -->
+            </div>
 
+            <div class="row cute" style="position: absolute; bottom:7px; right: 50px;">
+                Data Provided by <a href="https://data.sfgov.org" target="_blank"> SFGOV.org </a> </p>
             </div>
         </div>
     </template>
