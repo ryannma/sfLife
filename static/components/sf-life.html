@@ -8,6 +8,7 @@
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../js/vanilla.js"></script>
         <script src="../js/jquery.min.js"></script>
+        <script src="../js/spin.min.js"></script>
         <style>
         .left-panel {
             background-color: #45DFBE;
@@ -19,6 +20,7 @@
             height: 100%;
         }
         .option-tab {
+            margin-bottom: 15px;
         }
 
         #tooltip {   
@@ -61,7 +63,7 @@
             text-align:center;
         }
     </style>
-    <div class="top-section">
+    <div id="contain" class="top-section">
     <div class="row">
       <div class="col-md-4 left-panel">
         <div center horizontal layout>
@@ -92,7 +94,12 @@
             metricData: null,
             features: [],
             scores: {},
+            computedScores: {},
             total: 0,
+            lastSelectedBlock: null,
+            highColor: 'black',
+            colorArray: ["#ffeda0", "#fed976", "#fecc5c", "#feb24c", "#f03b20", "#bd0026", "#800026"],
+            map: null,
             ready: function() {
                 var r = new XMLHttpRequest();
                 var that = this;
@@ -100,82 +107,16 @@
                 r.onreadystatechange = function () {
                   if (r.readyState != 4 || r.status != 200) return;
                   metricData = JSON.parse(r.responseText);
-                  console.dir(metricData.format);
                   _.each(metricData.format, function(feature){
                     that.features.push([feature, false]);
                   })
-                  console.dir(metricData.data)
                   _.map(metricData.data, function(num, key){
                     that.scores[key] = num;
+                    that.computedScores[key] = 0;
                   });
-                  console.dir(that.scores);
                 };
                 r.send("na");
-                var draw = function() {
-                    if (that.$.map.querySelector('svg') != undefined) {
-                        that.$.map.querySelector('svg').remove();
-                    }
-                    var arr = [];
-                    var rates = [];
-                    var width = that.$.map.offsetWidth;
-                    var height = that.$.map.offsetHeight;
-
-                    //var scale = width * 354;
-                    var scale = (width/843)*268000;
-                    var horizontalOffset = width / 1.7;
-                    var verticalOffset = height / 3.05;
-
-                    var map = d3.select(that.$.map).append('svg').attr("width", width)
-                    .attr("height", height);
-                    var path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(scale).translate([horizontalOffset, verticalOffset]));
-                    d3.json('static/data/AsthmaRates_CB00.json', function(json) {
-                        map.selectAll('path')
-                            .data(json.features)
-                            .enter().append('path')
-                            .attr('d', path)
-                            .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
-                            .attr('class', function(d, i) {
-                                //console.log('block: ' + d.properties.BLOCKGROUP);
-                                //   console.log('zip z' + d.properties);
-                                arr.push(d.properties);
-                                return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
-                            })
-                            .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
-                            .on('mouseover', function() {
-                                var zip = d3.select(this).attr('class').split('block b').join('');
-                                var ques = d3.select(this).attr('id').split('n').join('');
-                                var score = Math.round(that.calculateScore(zip) * 100) / 10;
-                                console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
-
-                                d3.select(that.$.map).selectAll('p').text('');
-                                for (key in arr) {
-                                    d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
-                                }
-                                d3.select(that.$.map.querySelector('.b' + zip)).style("fill", "purple");
-
-                                // Add tooltip
-                                d3.select(that.$.tooltip).transition().duration(200).style("opacity", .9);
-
-                                var tootipContent =                     
-                                    "<table>"+
-                                    "<tr><td>Score</td><td>"+(score)+"</td></tr>"+
-                                    "</table>";
-                                d3.select(that.$.tooltip).html(tootipContent)  
-                                    .style("left", (d3.event.pageX) + "px")     
-                                    .style("top", (d3.event.pageY - 28) + "px");
-                            })
-                            .on('mouseout', function() {
-                                // Remove tooltip on mouse out
-                                d3.select(that.$.tooltip).transition().duration(500).style("opacity", 0);
-
-                                // Deselect block on mouse out
-                                for (key in arr) {
-                                    d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
-                                }
-                            });
-                    }); 
-                }
-                draw();
+                this.draw();
                 $j(window).resize(function() {
                     if(this.resizeTO) clearTimeout(this.resizeTO);
                     this.resizeTO = setTimeout(function() {
@@ -188,11 +129,90 @@
                 });
 
             },
+            draw: function() {
+                var that = this;
+                if (that.$.map.querySelector('svg') != undefined) {
+                    that.$.map.querySelector('svg').remove();
+                }
+                var arr = [];
+                var rates = [];
+                var width = that.$.map.offsetWidth;
+                var height = that.$.map.offsetHeight;
+
+                //var scale = width * 354;
+                var scale = (width/843)*268000;
+                var horizontalOffset = width / 1.7;
+                var verticalOffset = height / 3.05;
+
+                var map = d3.select(that.$.map).append('svg').attr("width", width)
+                .attr("height", height);
+                this.map = map;
+                var path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(scale).translate([horizontalOffset, verticalOffset]));
+                d3.json('static/data/AsthmaRates_CB00.json', function(json) {
+                    map.selectAll('path')
+                        .data(json.features)
+                        .enter().append('path')
+                        .attr('d', path)
+                        .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                        .attr('class', function(d, i) {
+                            //console.log('block: ' + d.properties.BLOCKGROUP);
+                            //   console.log('zip z' + d.properties);
+                            arr.push(d.properties);
+                            return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
+                        })
+                        .style("fill", function(d) { /*console.log(i);*/
+                            return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 10, that.colorArray);
+                        })
+                        .on('mouseover', function() {
+                            var zip = d3.select(this).attr('class').split('block b').join('');
+                            var ques = d3.select(this).attr('id').split('n').join('');
+                            var score = Math.round(that.computedScores[zip] * 10) / 10;
+                            console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
+
+                            d3.select(that.$.map).selectAll('p').text('');
+                            // for (key in arr) {
+                            //     d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                            // }
+                            //d3.select(that.$.map.querySelector('.b' + zip)).style("fill", "purple");
+
+                            // Add tooltip
+                            d3.select(that.$.tooltip).transition().duration(200).style("opacity", .9);
+
+                            var tootipContent =                     
+                                "<table>"+
+                                "<tr><td>Score</td><td>"+(score)+"</td></tr>"+
+                                "</table>";
+
+                            d3.select(that.$.tooltip).html(tootipContent)  
+                                .style("left", (d3.event.pageX) + "px")     
+                                .style("top", (d3.event.pageY - 28) + "px");
+                            
+
+                            if (that.lastSelectedBlock != null) {
+                                d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[zip], 10, that.colorArray));
+                            }
+                            lastSelectedBlock = ques; //global value for last obj
+                            d3.select('#map .b' + zip).style("fill", that.highColor);
+                        })
+                        .on('mouseout', function() {
+                            // Remove tooltip on mouse out
+                            d3.select(that.$.tooltip).transition().duration(500).style("opacity", 0);
+                            // Deselect block on mouse out
+
+                            if (that.lastSelectedBlock != null) {
+                                d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[lastSelectedBlock], 10, that.colorArray));
+                            }
+                            for (key in arr) {
+                                //d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                            }
+                        });
+                }); 
+            },
             calculateScore: function(district_id) {
-                console.log("calculating score");
+                //console.log("calculating score");
                 score = 0.0;
                 feature_scores = this.scores[district_id];
-                console.dir(feature_scores);
+                //console.dir(feature_scores);
                 for (var i = 0; i < feature_scores.length; i++) {
                     if (this.features[i][1]) {
                         score += feature_scores[i];
@@ -206,28 +226,36 @@
                 return score;
             },
             updateTotal: function() {
-                console.log("updating total");
                 sum = 0;
                 _.each(this.features, function(feature){
-                    console.log(feature);
                     if (feature[1] == true){
                         sum++;
                     }
                 })
                 this.total = sum;
-                this.calculateScore("060750167002");
             },
             featuresChanged: function(oldValue) {
                 this.updateTotal();
             },
             featureToggled: function(obj) {
                 var index = -1;
-                _.each(this.features, function(feature){
+                var that = this;
+                _.each(that.features, function(feature){
                     if (feature[0] == obj.target.id){
                         feature[1] = !feature[1];
                     }
                 })
                 this.updateTotal();
+                _.map(metricData.data, function(num, key) {
+                    that.computedScores[key] = that.calculateScore(key) * 10;
+                });
+                this.draw();
+            },
+            colorBlock: function(value, max_val, swatch) {
+                console.log("value: " + value + " max_val: " + max_val + " swatch");
+                var step_size = Math.round(max_val / swatch.length);
+                var color = Math.round(value / step_size);
+                return swatch[Math.min(Math.min(color, swatch.length), swatch.length - 1)]
             }
         });
     </script>
