@@ -6,6 +6,7 @@
         <link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../js/vanilla.js"></script>
         <style>
         .left-panel {
             background-color: #45DFBE;
@@ -63,7 +64,17 @@
     <script src="../bower_components/require/build/require.min.js"></script>
     <script>
         Polymer('sf-life', {
+            metricData: null,
             ready: function() {
+
+                var r = new XMLHttpRequest();
+                r.open("GET", "static/data/SF.json", true);
+                r.onreadystatechange = function () {
+                  if (r.readyState != 4 || r.status != 200) return;
+                  metricData = JSON.parse(r.responseText);
+                  console.dir(metricData);
+                };
+                r.send("banana=yellow");
                 var that = this;
                 var arr = [];
                 var rates = [];
@@ -101,7 +112,7 @@
 
                                 //Sample -- d3.select('#map .z94110').style("fill", "purple");
 
-                                s//highlightZip(zip);
+                                //highlightZip(zip);
                            });
                 }); 
             }
