@@ -20,6 +20,7 @@
     "d3": "~3.5.4",
     "paper-toggle-button": "Polymer/paper-toggle-button#~0.5.4",
     "core-ajax": "Polymer/core-ajax#~0.5.4",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "paper-button": "Polymer/paper-button#~0.5.4"
   }
 }

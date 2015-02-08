@@ -3,6 +3,7 @@
 <polymer-element name="sf-life" attributes="">
     <template>
         <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
+        <link rel="import" href="../bower_components/paper-button/paper-button.html">
         <link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -74,6 +75,26 @@
             -moz-transition: opacity .25s ease-in-out;
             -webkit-transition: opacity .25s ease-in-out;
        }
+        paper-button.colored {
+          color: #4285f4;
+        }
+
+        paper-button[raised].colored {
+          background: #4285f4;
+          color: #fff;
+        }
+
+        paper-button.custom > core-icon {
+          margin-right: 4px;
+        }
+
+        paper-button.hover:hover {
+          background: #eee;
+        }
+
+        paper-button.blue-ripple::shadow #ripple {
+          color: #4285f4;
+        }
     </style>
     <div id="contain" class="top-section">
     <div class="row">
@@ -88,6 +109,7 @@
                 <paper-toggle-button id="{{feature[0]}}" role="button" aria-checked="false" on-core-change="{{featureToggled}}"></paper-toggle-button>
             </div> 
         </template>
+        <button on-click="{{showWatson}}" id="ibm" class="colored ibm">Watson Recommendations</button>
       </div>
       <div class="col-md-8 right-panel">
           <div id="map" style="width: 100%; height: 100%" class="ok"></div>
@@ -107,6 +129,7 @@
             features: [],
             scores: {},
             computedScores: {},
+            watsonFeatures: [],
             total: 0,
             lastSelectedBlock: null,
             highColor: 'black',
@@ -129,7 +152,7 @@
                   });
                 };
                 r.send("na");
-                this.draw();
+                this.draw(false);
                 $j(window).resize(function() {
                     if(this.resizeTO) clearTimeout(this.resizeTO);
                     this.resizeTO = setTimeout(function() {
@@ -138,11 +161,11 @@
                 });
 
                 $j(window).bind('resizeEnd', function() {
-                    that.draw();
+                    that.draw(false);
                 });
 
             },
-            draw: function() {
+            draw: function(watson) {
                 var that = this;
                 var arr = [];
                 var rates = [];
@@ -175,13 +198,17 @@
                             return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
                         })
                         .style("fill", function(d) { /*console.log(i);*/
-                            return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 10, that.colorArray);
+                            if (watson && watsonFeatures.indexOf(d.properties.BLOCKGROUP) <= -1) {
+                                return that.colorBlock(0, 10, that.colorArray);
+                            } else {
+                                return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 10, that.colorArray);
+                            }
                         })
                         .on('mouseover', function() {
                             var zip = d3.select(this).attr('class').split('block b').join('');
                             var ques = d3.select(this).attr('id').split('n').join('');
                             var score = Math.round(that.computedScores[zip] * 10) / 10;
-                            console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
+                            //console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
 
                             d3.select(that.$.map).selectAll('p').text('');
                             // for (key in arr) {
@@ -201,19 +228,20 @@
                                 .style("left", (d3.event.pageX) + "px")     
                                 .style("top", (d3.event.pageY - 28) + "px");
                             
-
-                            if (that.lastSelectedBlock != null) {
-                                d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[zip], 10, that.colorArray));
+                            if (!watson) {
+                                if (that.lastSelectedBlock != null) {
+                                    d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[zip], 10, that.colorArray));
+                                }
+                                lastSelectedBlock = ques; //global value for last obj
+                                d3.select('#map .b' + zip).style("fill", that.highColor);
                             }
-                            lastSelectedBlock = ques; //global value for last obj
-                            d3.select('#map .b' + zip).style("fill", that.highColor);
                         })
                         .on('mouseout', function() {
                             // Remove tooltip on mouse out
                             d3.select(that.$.tooltip).transition().duration(500).style("opacity", 0);
                             // Deselect block on mouse out
 
-                            if (that.lastSelectedBlock != null) {
+                            if (!watson && that.lastSelectedBlock != null) {
                                 d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[lastSelectedBlock], 10, that.colorArray));
                             }
                             for (key in arr) {
@@ -263,13 +291,118 @@
                 _.map(metricData.data, function(num, key) {
                     that.computedScores[key] = that.calculateScore(key) * 10;
                 });
-                this.draw();
+                this.updateWatson();
+                this.draw(false);
             },
             colorBlock: function(value, max_val, swatch) {
-                console.log("value: " + value + " max_val: " + max_val + " swatch");
+                //console.log("value: " + value + " max_val: " + max_val + " swatch");
                 var step_size = Math.round(max_val / swatch.length);
                 var color = Math.round(value / step_size);
                 return swatch[Math.min(Math.min(color, swatch.length), swatch.length - 1)]
+            },
+            updateWatson: function() {
+                // var selectedFeatures = [];
+                // _.each(this.features, function(feature){
+                //     if (feature[1]){
+                //         selectedFeatures.push(feature[0]);
+                //     }
+                // });
+                // console.log(selectedFeatures);
+                // this.watsonFeatures.selectedFeatures;
+                // if (this.shouldCallWatson()) {
+                //     // this.callWatson(selectedFeatures, function(data, error) {
+                //     //     if (error) {
+                //     //         alert("trouble calling Watson");
+                //     //     } else {
+                //     //         var solutions = data.resolution.solutions;
+                //     //     }
+                //     // });
+                // } else {
+                //     this.$.ibm.disable = true;
+                // }
+            },
+            showWatson: function() {
+                var selectedFeatures = [];
+                _.each(this.features, function(feature){
+                    if (feature[1]){
+                        selectedFeatures.push(feature[0]);
+                    }
+                });
+                console.log(selectedFeatures);
+
+                this.watsonFeatures.selectedFeatures;
+                if (this.shouldCallWatson()) {
+
+                } else {
+                    alert("Too many features to call Watson");
+                }
+            },
+            objectLength: function(obj) {
+                var count = 0;
+                var i;
+
+                for (i in obj) {
+                    if (obj.hasOwnProperty(i)) {
+                        count++;
+                    }
+                }
+                return count;
+            },
+            shouldCallWatson: function() {
+                return (this.total * this.objectLength(metricData.data)) <= 2000;
+            },
+            callWatson: function(format, callback) {
+                //var format = metricData.format;
+                var columns = [];
+                var options = [];
+                for (var f in format) {
+                    var column = {};
+                    column.key = format[f];
+                    column.full_name = format[f];
+                    column.type = "NUMERIC";
+                    column.is_objective = true;
+                    column.goal = "MAX";
+                    columns.push(column);
+                }
+
+                for (var k in metricData.data) {
+                    if (metricData.data.hasOwnProperty(k)) {
+                        var option = {};
+                        option.key = k;
+                        option.name = k;
+                        var values = {};
+                        for (var i = 0; i < format.length; i++) {
+                            values[format[i]] = metricData.data[k][i];
+                        }
+                        option.values = values;
+                        options.push(option);
+                    }
+                }
+
+                var result = {};
+                result.columns = columns;
+                result.options = options;
+                result.subject = 'living';
+                console.dir(result);
+
+                $j.ajax({
+                    type: 'POST',
+                    url: '/watson',
+                    contentType: 'application/json',
+                    data: JSON.stringify(result),
+                    dataType: "application/json",
+
+                    success: function(result) {
+                      console.log("success");
+                      console.dir(result);
+                      callback(result);
+                    },
+
+                    error: function(e) {
+                      console.log("[ERROR]");
+                      callback(undefined, e);
+                    }
+                });
             }
         });
     </script>
