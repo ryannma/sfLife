@@ -57,3 +57,5 @@ target/
 npm-debug.log
 
 static/bower_components
+
+venv/
