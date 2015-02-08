@@ -2,6 +2,23 @@
 
 {% block content %}
 
-    <h2 class="distinct wide-text">DASHBOARD</h2>
+<core-scaffold>
+
+  <core-header-panel navigation flex>
+    <core-toolbar id="navheader">
+      <span>Menu</span>
+    </core-toolbar>
+    <core-menu>
+      <core-item label="One"></core-item>
+      <core-item label="Two"></core-item>
+    </core-menu>
+  </core-header-panel>
+  
+  <span tool>Title</span>
+
+  <div class="content">
+      If drawer is hidden, press button to display drawer.
+  </div>
+</core-scaffold>
 
 {% endblock %}
