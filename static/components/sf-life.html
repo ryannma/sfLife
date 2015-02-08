@@ -63,6 +63,18 @@
         #tooltip tr td:nth-child(2){
             text-align:center;
         }
+        .fade {
+           opacity: 0;
+           transition: opacity .25s ease-in-out;
+           -moz-transition: opacity .25s ease-in-out;
+           -webkit-transition: opacity .25s ease-in-out;
+       }
+       .ok {
+            opacity: 1;
+            transition: opacity .25s ease-in-out;
+            -moz-transition: opacity .25s ease-in-out;
+            -webkit-transition: opacity .25s ease-in-out;
+       }
     </style>
     <div id="contain" class="top-section">
     <div class="row">
@@ -79,7 +91,7 @@
         </template>
       </div>
       <div class="col-md-8 right-panel">
-          <div id="map" style="width: 100%; height: 100%"></div>
+          <div id="map" style="width: 100%; height: 100%" class="ok"></div>
       </div>
       <div id="tooltip"></div><!-- div to hold tooltip. -->
 
@@ -127,15 +139,12 @@
                 });
 
                 $j(window).bind('resizeEnd', function() {
-                    draw();
+                    that.draw();
                 });
 
             },
             draw: function() {
                 var that = this;
-                if (that.$.map.querySelector('svg') != undefined) {
-                    that.$.map.querySelector('svg').remove();
-                }
                 var arr = [];
                 var rates = [];
                 var width = that.$.map.offsetWidth;
@@ -146,6 +155,10 @@
                 var horizontalOffset = width / 1.7;
                 var verticalOffset = height / 3.05;
 
+                if (that.$.map.querySelector('svg') != undefined) {
+                    //that.$.map.querySelector('svg').addClass('fade');
+                    that.$.map.querySelector('svg').remove();
+                }
                 var map = d3.select(that.$.map).append('svg').attr("width", width)
                 .attr("height", height);
                 this.map = map;
