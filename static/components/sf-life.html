@@ -17,6 +17,7 @@
             padding: 50px;
             font: 300 1em/1.38 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
             line-height: 1.9;
+            border: 1px solid transparent;
         }
         .my-row {
             padding: 2px 0px 2px 7px;
@@ -36,6 +37,11 @@
         .cute {
              font: 300 1em/1.38 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
         }
+
+        #sub {
+          font: 300 1.2em/1.38 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
+            text-transform: none;
+        }
         .right-panel {
             background-color: #FFF2F2;
             height: 100%;
@@ -44,10 +50,13 @@
             margin-bottom: 15px;
         }
         #map-title {
-            font: 200 2em/2 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
             line-height: 1.9;
             margin: 50px 0px 2px 70px;
-            /*text-align: center;*/
+            /*text-transform: uppercase;
+            text-align: center;*/
+        }
+        #map-title .it {
+            font: 100 2em/2 museo-sans, Avenir, "Open Sans", Helvetica, Sans-serif;
         }
         #tooltip {
             position: absolute;
@@ -108,7 +117,7 @@
                 <div class="col-md-4 left-panel">
                     <div center horizontal layout id="title-row">
                         <div flex>
-                            <h2>HEDGE</h2>
+                            <h2>HEDGE | Parameters </h2>
                         </div>
                     </div>
                     </br>
@@ -120,14 +129,16 @@
                     </template>
                 </div>
                 <div class="col-md-8 right-panel">
-                    <div id="map-title"> SF Housing Livability</div>
-                    <div id="map" style="width: 100%; height: 100%; margin-top:-105px; margin-left:-10px" class="ok"></div>
+                    <div id="map-title" class="it"> <h2> SF Housing Livability </h2>
+                         <p id="sub"> Finding your perfect neighborhood </p>
+                    </div>
+                    <div id="map" style="width: 100%; height: 100%; margin-top:-125px; margin-left:-10px" class="ok"></div>
                 </div>
                 <div id="tooltip"></div>
                 <!-- div to hold tooltip. -->
             </div>
 
-            <div class="row cute legend" style="position: absolute; bottom:200px; right: 15px;">
+            <div class="row cute legend" style="position: absolute; bottom:200px; right: 18px;">
                 <h3> Legend  </h3> <div style="width:200px; display:flex;">
                     Our Livability index corresponds to the normalized value of your housing and lifestyle preferences.
                     </div>
