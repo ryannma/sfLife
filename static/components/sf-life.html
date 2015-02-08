@@ -26,30 +26,13 @@
             <div flex><h2>EDGE</h2></div>
         </div>
         </br>
-        <div center horizontal layout class="option-tab">
-            <div flex> Community Gardens </div>
-            <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
+
+        <template repeat="{{ feature in collection }}">
+            <div center horizontal layout class="option-tab">
+                <div flex> Community Gardens </div>
+                <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
         </div> 
-            </br>
-        <div center horizontal layout class="option-tab">
-            <div flex> Farmers Markets </div>
-            <paper-toggle-button role="button" aria-pressed="{{markets_selected}}"></paper-toggle-button>
-        </div> 
-            </br>
-        <div center horizontal layout class="option-tab">
-            <div flex> Health Facility Proximity </div>
-            <paper-toggle-button role="button" aria-pressed="{{health_selected}}"></paper-toggle-button>
-        </div> 
-            </br>
-        <div center horizontal layout class="option-tab">
-            <div flex> Rent Burden </div>
-            <paper-toggle-button role="button" aria-pressed="{{rentburden_selected}}"></paper-toggle-button>
-        </div> 
-            </br>
-        <div center horizontal layout class="option-tab">
-            <div flex> Transit Frequency </div>
-            <paper-toggle-button role="button" aria-pressed="{{transit_selected}}"></paper-toggle-button>
-        </div>
+        </template>
       </div>
 
       <div class="col-md-8 right-panel">
@@ -64,6 +47,8 @@
         Polymer('sf-life', {
             unprocessed = require("data.json");
             data = {}
+            collection = {}
+
             ready: function() {
             },
             attached: function() {
@@ -75,12 +60,42 @@
 
                 }
             },
-            health_selectedChanged: function(oldValue, newValue) {
-                calculate();
+            gardens_selectedChanged: function(oldValue, newValue) {
+                calculateScore();
+            },
+            markets_selectedChanged: function(oldValue, newValue) {
+                calculateScore();
             },
             health_selectedChanged: function(oldValue, newValue) {
-                calculate();
+                calculateScore();
             },
+            rentburden_selectedChanged: function(oldValue, newValue) {
+                calculateScore();
+            },
+            transit_selectedChanged: function(oldValue, newValue) {
+                calculateScore();
+            },
+            calculateScore: function() {
+                total = 0;
+                score = 0;
+                if (gardens_selected) {
+                    total++;
+                    score+=data.
+                }
+                if (markets_selected) {
+                    total++;
+                }
+                if (health_selected) {
+                    total++;
+                }
+                if (rentburden_selected) {
+                    total++;
+                }
+                if (transit_selected) {
+                    total++;
+                }
+
+            }
 
         });
     </script>

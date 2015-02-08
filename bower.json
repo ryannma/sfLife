@@ -17,7 +17,7 @@
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.4",
     "bootstrap": "~3.3.2",
-    "require": "*",
-    "underscore": "~1.7.0"
+    "d3": "~3.5.4",
+    "paper-toggle-button": "Polymer/paper-toggle-button#~0.5.4"
   }
 }
