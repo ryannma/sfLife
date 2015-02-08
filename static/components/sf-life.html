@@ -11,7 +11,8 @@
         <script src="../js/spin.min.js"></script>
         <style>
         .left-panel {
-            background-color: #45DFBE;
+            /*background-color: #45DFBE;*/
+            background-color: #979BA5;
             height: 100%;
             padding: 50px;
         }
@@ -67,7 +68,7 @@
     <div class="row">
       <div class="col-md-4 left-panel">
         <div center horizontal layout>
-            <div flex><h2>EDGE</h2></div>
+            <div flex><h2>HEDGE</h2></div>
         </div>
         </br>
         <template repeat="{{ feature in features }}">
@@ -98,7 +99,8 @@
             total: 0,
             lastSelectedBlock: null,
             highColor: 'black',
-            colorArray: ["#ffeda0", "#fed976", "#fecc5c", "#feb24c", "#f03b20", "#bd0026", "#800026"],
+            //colorArray: ["#E1E6F8", "#707070", "#253264", "#0F1E58", "#000D3F"],
+            colorArray: ["#CCCCCC", "#AABAEA","#3952D7","#1326BC","#0B166D"],
             map: null,
             ready: function() {
                 var r = new XMLHttpRequest();
