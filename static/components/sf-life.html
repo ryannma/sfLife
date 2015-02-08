@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="sf-life" attributes="">
+    <template>
+        <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
+        <link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <style>
+        .left-panel {
+            background-color: #45DFBE;
+            height: 100%;
+        }
+        .right-panel {
+            background-color: #FFFFFF;
+            height: 100%;
+        }
+    </style>
+    <div class="top-section">
+    <div class="row">
+      <div class="col-md-4 left-panel">
+        <div center horizontal layout>
+            <div flex> Community Gardens </div>
+            <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout>
+            <div flex> Farmers Markets </div>
+            <paper-toggle-button role="button" aria-pressed="{{markets_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout>
+            <div flex> Health Facility Proximity </div>
+            <paper-toggle-button role="button" aria-pressed="{{health_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout>
+            <div flex> Rent Burden </div>
+            <paper-toggle-button role="button" aria-pressed="{{rentburden_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout>
+            <div flex> Transit Frequency </div>
+            <paper-toggle-button role="button" aria-pressed="{{transit_selected}}"></paper-toggle-button>
+        </div>
+      </div>
+      
+      <div class="col-md-8 right-panel">
+          
+      </div>
+
+    </div>
+    </div>
+    </template>
+
+    <script>
+        Polymer('sf-life', {
+
+        });
+    </script>
+    
+</polymer-element>
