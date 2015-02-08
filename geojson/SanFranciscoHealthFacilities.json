@@ -1,0 +1,1337 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3698 SACRAMENTO STREET",
+        "OSHPD_ID": 106380826,
+        "FacilName": "CALIFORNIA PACIFIC MED CTR-CALIFORNIA EAST",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45354950464,
+          37.787402324429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3700 CALIFORNIA STREET",
+        "OSHPD_ID": 106380777,
+        "FacilName": "CALIFORNIA PACIFIC MED CTR-CALIFORNIA WEST",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45591166036,
+          37.786144060682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "CASTRO AND DUBOCE STREETS",
+        "OSHPD_ID": 106380933,
+        "FacilName": "CALIFORNIA PACIFIC MED CTR-DAVIES CAMPUS",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43581769596,
+          37.769054188445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2333 BUCHANAN STREET",
+        "OSHPD_ID": 106380929,
+        "FacilName": "CALIFORNIA PACIFIC MED CTR-PACIFIC CAMPUS",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4310375509,
+          37.791424437388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3555 CESAR CHAVEZ STREET",
+        "OSHPD_ID": 106380964,
+        "FacilName": "CALIFORNIA PACIFIC MEDICAL CENTER - ST. LUKE'S CAMPUS",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42124884965,
+          37.748042958092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "845 JACKSON STREET",
+        "OSHPD_ID": 106382715,
+        "FacilName": "CHINESE HOSPITAL",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40917233247,
+          37.795662089722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2425 GEARY BOULEVARD",
+        "OSHPD_ID": 106380857,
+        "FacilName": "KAISER FND HOSP - SAN FRANCISCO",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44370676473,
+          37.782683243028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "375 LAGUNA HONDA BOULEVARD",
+        "OSHPD_ID": 106380865,
+        "FacilName": "LAGUNA HONDA HOSPITAL AND REHABILITATION CENTER",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45871778955,
+          37.747625733377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1001 POTRERO AVENUE",
+        "OSHPD_ID": 106380939,
+        "FacilName": "SAN FRANCISCO GENERAL HOSPITAL",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40771971952,
+          37.756063630326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "900 HYDE STREET",
+        "OSHPD_ID": 106380960,
+        "FacilName": "ST. FRANCIS MEMORIAL HOSPITAL",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41706621055,
+          37.789567983744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "450 STANYAN STREET",
+        "OSHPD_ID": 106380965,
+        "FacilName": "ST. MARY'S MEDICAL CENTER, SAN FRANCISCO",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45440679294,
+          37.773804486329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "505 PARNASSUS AVENUE",
+        "OSHPD_ID": 106381154,
+        "FacilName": "UCSF MEDICAL CENTER",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45856737695,
+          37.763367338133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1600 DIVISADERO STREET",
+        "OSHPD_ID": 106380895,
+        "FacilName": "UCSF MEDICAL CENTER AT MOUNT ZION",
+        "FacilType": "General Acute Care Hospital",
+        "Services": "Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43972580799,
+          37.784776855843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "225 30TH STREET",
+        "OSHPD_ID": 306384044,
+        "FacilName": "ON LOK 30TH STREET COMMUNITY CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42510833879,
+          37.74215288385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1025 HOWARD STREET",
+        "OSHPD_ID": 306384180,
+        "FacilName": "AHF HEALTHCARE CENTER - SAN FRANCISCO",
+        "FacilType": "Community Clinic",
+        "Services": "Sexual Health Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40779106116,
+          37.779187013891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1111 MARKET STREET, 1ST FLOOR",
+        "OSHPD_ID": 306384166,
+        "FacilName": "BAART MARKET CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Drug Treatment"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41279074887,
+          37.78021720363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "433 TURK STREET",
+        "OSHPD_ID": 306384192,
+        "FacilName": "BAART TURK STREET CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Drug Treatment"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41634656555,
+          37.782463225028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1800 31ST AVENUE",
+        "OSHPD_ID": 306384154,
+        "FacilName": "CHINESE COMMUNITY HEALTH SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.48927462786,
+          37.753412781394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "888 PARIS STREET",
+        "OSHPD_ID": 306384182,
+        "FacilName": "CHINESE HOSPITAL'S EXCELSIOR HEALTH SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43940101842,
+          37.71582646161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "333 TURK STREET",
+        "OSHPD_ID": 306382735,
+        "FacilName": "CURRY SENIOR CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41458161951,
+          37.782670544923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "529 CLAYTON STREET",
+        "OSHPD_ID": 306381276,
+        "FacilName": "DRUG DETOXIFICATION, REHAB AND AFTER CARE SVS. PROG.",
+        "FacilType": "Free Clinic",
+        "Services": "Drug Treatment"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44870301555,
+          37.770294606231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "450 SUTTER ST., STE. 1740",
+        "OSHPD_ID": 306384194,
+        "FacilName": "FIRST RESORT",
+        "FacilType": "Community Clinic",
+        "Services": "Womens Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40778303883,
+          37.789347965605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "330 ELLIS STREET",
+        "OSHPD_ID": 306384165,
+        "FacilName": "GLIDE HEALTH SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41164952581,
+          37.785094970862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "558 CLAYTON STREET",
+        "OSHPD_ID": 306380827,
+        "FacilName": "HAIGHT ASHBURY FREE MEDICAL CLINIC",
+        "FacilType": "Free Clinic",
+        "Services": "Free General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44858044309,
+          37.77019155068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1735 MISSION ST",
+        "OSHPD_ID": 306384196,
+        "FacilName": "HAIGHT ASHBURY INTEGRATED CARE CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Free General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41991750154,
+          37.769483795837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2700 GEARY BLVD.",
+        "OSHPD_ID": 306384158,
+        "FacilName": "INSTITUTE ON AGING",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.44834319327,
+          37.782467808581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2919 MISSION STREET",
+        "OSHPD_ID": 306382737,
+        "FacilName": "INSTITUTO FAMILIAR DE LA RAZA - OUTPATIENT",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41819551027,
+          37.750343705676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3575 GEARY BLVD",
+        "OSHPD_ID": 306384222,
+        "FacilName": "LIFEWAYS PACE AT THE CORONET",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45766761754,
+          37.781233643276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1748 MARKET STREET",
+        "OSHPD_ID": 306382714,
+        "FacilName": "LYON-MARTIN WOMENS HEALTH SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "Womens Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4228123542,
+          37.772401936034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "242 MYRTLE STREET",
+        "OSHPD_ID": 306382736,
+        "FacilName": "MERRIOUNS PSYCHOLOGICAL INSTITUTE",
+        "FacilType": "Community Clinic",
+        "Services": "Mental Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42204390938,
+          37.785181514652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "240 SHOTWELL STREET",
+        "OSHPD_ID": 306380891,
+        "FacilName": "MISSION NEIGHBORHOOD HEALTH CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41635344222,
+          37.764727683435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1647 VALENCIA STREET",
+        "OSHPD_ID": 306384212,
+        "FacilName": "MISSION NEIGHBORHOOD HEALTH CENTER - VALENCIA CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42008010033,
+          37.74700014795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "4434 MISSION STREET",
+        "OSHPD_ID": 306384045,
+        "FacilName": "MISSION NEIGHBORHOOD HEALTH CTR.-EXCELSIOR CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4333767549,
+          37.726681581284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "165 CAPP ST",
+        "OSHPD_ID": 306384214,
+        "FacilName": "MISSION NEIGHBORHOOD RESOURCE CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41855477047,
+          37.764034396075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "160 CAPP STREET",
+        "OSHPD_ID": 306380896,
+        "FacilName": "NATIVE AMERICAN HEALTH CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41866508809,
+          37.764117333872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1520 STOCKTON STREET",
+        "OSHPD_ID": 306382711,
+        "FacilName": "NORTH EAST MEDICAL SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40902522559,
+          37.799897388067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1450 NORIEGA STREET",
+        "OSHPD_ID": 306384210,
+        "FacilName": "NORTH EAST MEDICAL SERVICES - NORIEGA",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.47940015927,
+          37.754127840548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2574 SAN BRUNO AVE",
+        "OSHPD_ID": 306384207,
+        "FacilName": "NORTH EAST MEDICAL SERVICES - SAN BRUNO AVENUE",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40426045393,
+          37.729088148104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "82 LELAND AVENUE",
+        "OSHPD_ID": 306384053,
+        "FacilName": "NORTH EAST MEDICAL SERVICES-LELAND AVENUE",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4052493909,
+          37.711827020852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1000 MONTGOMERY STREET",
+        "OSHPD_ID": 306384014,
+        "FacilName": "ON LOK SENIOR HEALTH SERVICES",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4038559414,
+          37.798467267707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1333 BUSH STREET",
+        "OSHPD_ID": 306382724,
+        "FacilName": "ON LOK SENIOR HEALTH SERVICES - BUSH ST",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4190463747,
+          37.788823130859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1441 POWELL STREET",
+        "OSHPD_ID": 306382725,
+        "FacilName": "ON LOK SENIOR HEALTH SERVICES - POWELL",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41037283918,
+          37.797883989814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "4430 MISSION STREET",
+        "OSHPD_ID": 306384163,
+        "FacilName": "ON LOK SENIOR HEALTH SERVICES-MISSION CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Senior Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43329370879,
+          37.726740139644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "815 EDDY STREET",
+        "OSHPD_ID": 306380924,
+        "FacilName": "PLANNED PARENTHOOD GOLDEN GATE",
+        "FacilType": "Community Clinic",
+        "Services": "Family General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42154564614,
+          37.782763458445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1650 VALENCIA STREET",
+        "OSHPD_ID": 306384219,
+        "FacilName": "PLANNED PARENTHOOD SAN FRANCISCO CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Family General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42012354845,
+          37.74611894443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3626 BALBOA STREET",
+        "OSHPD_ID": 306381330,
+        "FacilName": "RICHMOND MAXI-CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.49761416839,
+          37.775757135604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "4900 CALIFORNIA STREET",
+        "OSHPD_ID": 306384025,
+        "FacilName": "SAN FRANCISCO FREE CLINIC",
+        "FacilType": "Free Clinic",
+        "Services": "Free General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.47009063256,
+          37.784587776731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "229 7TH STREET",
+        "OSHPD_ID": 306384221,
+        "FacilName": "SOUTH OF MARKET HEALTH CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40888641243,
+          37.777660692343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "150 GOLDEN GATE AVE",
+        "OSHPD_ID": 306384201,
+        "FacilName": "ST. ANTHONY MEDICAL CLINIC",
+        "FacilType": "Free Clinic",
+        "Services": "Free General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4131723434,
+          37.781977351005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1372 MISSION ST.",
+        "OSHPD_ID": 306384174,
+        "FacilName": "ST. JAMES INFIRMARY",
+        "FacilType": "Community Clinic",
+        "Services": "Sexual Health Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41557678046,
+          37.775617783785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1580 VALENCIA STREET",
+        "OSHPD_ID": 306381339,
+        "FacilName": "ST. LUKE'S HEALTH CARE CENTER - ADULT CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42023355726,
+          37.747567398059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1580 VALENCIA ST",
+        "OSHPD_ID": 306384208,
+        "FacilName": "ST. LUKE'S HEALTH CARE CENTER - PEDIATRIC CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Youth Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42023355726,
+          37.747567398059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1580 VALENCIA STREET",
+        "OSHPD_ID": 306384183,
+        "FacilName": "ST. LUKE'S HEALTH CARE CENTER - WOMEN'S CLINIC",
+        "FacilType": "Community Clinic",
+        "Services": "Womens Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42023355726,
+          37.747567398059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "730 POLK STREET",
+        "OSHPD_ID": 306384211,
+        "FacilName": "ASIAN & PACIFIC ISLANDER WELLNESS CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Cultural General Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41919042198,
+          37.783586653142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1833 FILLMORE STREET",
+        "OSHPD_ID": 306384220,
+        "FacilName": "WOMAN'S COMMUNITY CLINIC\/TIDES CENTER",
+        "FacilType": "Community Clinic",
+        "Services": "Womens Health"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43338309108,
+          37.786524397133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "3850 17th Street\u00a0",
+        "OSHPD_ID": 0,
+        "FacilName": "Castro-Mission Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43184067059,
+          37.762717723617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1001 Potrero Ave",
+        "OSHPD_ID": 0,
+        "FacilName": "Children's Health Center at SFGH",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40619566188,
+          37.755779509655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1490 Mason Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Chinatown Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41177222016,
+          37.796930624068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "995 Potrero Avenue",
+        "OSHPD_ID": 0,
+        "FacilName": "Family Health Center at SFGH",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40663149748,
+          37.756903209382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1001 Potrero Ave",
+        "OSHPD_ID": 0,
+        "FacilName": "General Medical Clinic at SFGH",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40619566188,
+          37.755779509655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1301 Pierce Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Maxine Hall Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43586942897,
+          37.781937996174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1351 24th Avenue",
+        "OSHPD_ID": 0,
+        "FacilName": "Ocean Park Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.48249494786,
+          37.76238082867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1050 Wisconsin Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Potrero Hill Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39873528179,
+          37.754270690147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1525 Silver Avenue",
+        "OSHPD_ID": 0,
+        "FacilName": "Silver Avenue Family Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40651745545,
+          37.732227444835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2401 Keith Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Southeast Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39246655449,
+          37.725910486637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "5190 3rd Street\u00a0",
+        "OSHPD_ID": 0,
+        "FacilName": "3rd Street Youth Center & Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.39220069762,
+          37.730862046278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "356 7th Street",
+        "OSHPD_ID": 0,
+        "FacilName": "San Francisco City Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40702945419,
+          37.776044302377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "101 Grove St",
+        "OSHPD_ID": 0,
+        "FacilName": "Adult Immunization & Travel Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4186957199,
+          37.778383717896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "30 Van Ness Avenue",
+        "OSHPD_ID": 0,
+        "FacilName": "Breast & Cervical Cancer Services",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41935577553,
+          37.775877572322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "234 Eddy Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Housing and Urban Health Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41154247501,
+          37.784137854267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "50 Lech Walesa",
+        "OSHPD_ID": 0,
+        "FacilName": "Tom Waddell Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41853942848,
+          37.77797841227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1001 Potrero Ave.",
+        "OSHPD_ID": 0,
+        "FacilName": "Women's Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40659471067,
+          37.756174469754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1000 Cayuga Ave",
+        "OSHPD_ID": 0,
+        "FacilName": "Balboa Teen Health Center",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43982882626,
+          37.722070480904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "555 Cole Street",
+        "OSHPD_ID": 0,
+        "FacilName": "Cole Street Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45037400047,
+          37.769991932079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1138 Sutter St",
+        "OSHPD_ID": 0,
+        "FacilName": "Larkin Street Medical Clinic",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41912180243,
+          37.787942237966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "375 Woodside Avenue",
+        "OSHPD_ID": 0,
+        "FacilName": "Special Programs for Youth",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.45226708174,
+          37.74571702716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "1663 Mission St",
+        "OSHPD_ID": 0,
+        "FacilName": "Mission Neighborhood Health Centers-LPC",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.41948870288,
+          37.771258331757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Address": "2308 Taraval Street",
+        "OSHPD_ID": 0,
+        "FacilName": "North East Medical Services-Taraval",
+        "FacilType": "Community Health Network",
+        "Services": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.49104050508,
+          37.742408425782
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "NAME": "UCSF Parnassus FM", "ADDRESS": "500 Parnassus AVE" }, "geometry": { "type": "Point", "coordinates": [ -122.457900000353675, 37.763470000485519 ] } },
+{ "type": "Feature", "properties": { "NAME": "Inner Sunset FM", "ADDRESS": "9th Ave AND Irving ST" }, "geometry": { "type": "Point", "coordinates": [ -122.466300000173447, 37.764050001020905 ] } },
+{ "type": "Feature", "properties": { "NAME": "Upper Haight FM", "ADDRESS": "Waller St AND Stanyan St" }, "geometry": { "type": "Point", "coordinates": [ -122.453299999846621, 37.768240000760358 ] } },
+{ "type": "Feature", "properties": { "NAME": "Northbeach FM", "ADDRESS": "Mason St and Columbus Ave" }, "geometry": { "type": "Point", "coordinates": [ -122.412899999798924, 37.802260000639478 ] } },
+{ "type": "Feature", "properties": { "NAME": "Heart of the City FM", "ADDRESS": "1182 Market Street" }, "geometry": { "type": "Point", "coordinates": [ -122.41459999997322, 37.779060000945101 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ferry Plaza FM", "ADDRESS": "1 Ferry Bldg" }, "geometry": { "type": "Point", "coordinates": [ -122.3933999999457, 37.795520001304965 ] } },
+{ "type": "Feature", "properties": { "NAME": "Crocker Galleria FM", "ADDRESS": "50 Post Street" }, "geometry": { "type": "Point", "coordinates": [ -122.402900000056945, 37.789040001270358 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fort Mason FM", "ADDRESS": "Buchanan St AND Marina Blvd" }, "geometry": { "type": "Point", "coordinates": [ -122.433699999837316, 37.805100001092285 ] } },
+{ "type": "Feature", "properties": { "NAME": "Kaiser FM", "ADDRESS": "2241 Geary Blvd" }, "geometry": { "type": "Point", "coordinates": [ -122.440999999785859, 37.78267000085544 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fillmore FM", "ADDRESS": "1475 Fillmore St" }, "geometry": { "type": "Point", "coordinates": [ -122.433000000059636, 37.78235000071934 ] } },
+{ "type": "Feature", "properties": { "NAME": "Divisadero FM", "ADDRESS": "550 Divisadero St" }, "geometry": { "type": "Point", "coordinates": [ -122.437700000132523, 37.77475000072954 ] } },
+{ "type": "Feature", "properties": { "NAME": "UCSF Mission Bay FM", "ADDRESS": "550 Gene Friend Way" }, "geometry": { "type": "Point", "coordinates": [ -122.390399999670663, 37.769340000566061 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mint Plaza FM", "ADDRESS": "Mint Plaza AND Jessie St" }, "geometry": { "type": "Point", "coordinates": [ -122.407699999510626, 37.782600000780803 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mission Community Market", "ADDRESS": "bartlett st and 22nd st" }, "geometry": { "type": "Point", "coordinates": [ -122.419900000475479, 37.755370001227213 ] } },
+{ "type": "Feature", "properties": { "NAME": "Alemany FM", "ADDRESS": "100 Alemany BLVD" }, "geometry": { "type": "Point", "coordinates": [ -122.408599999547548, 37.737350000874507 ] } },
+{ "type": "Feature", "properties": { "NAME": "Stonestown FM", "ADDRESS": "3251 20th Ave" }, "geometry": { "type": "Point", "coordinates": [ -122.476700000440815, 37.72913000054475 ] } },
+{ "type": "Feature", "properties": { "NAME": "SFSU FM", "ADDRESS": "1600 Holloway Avenue" }, "geometry": { "type": "Point", "coordinates": [ -122.478499999825431, 37.723480001044614 ] } },
+{ "type": "Feature", "properties": { "NAME": "Castro FM", "ADDRESS": "2301 Market Street" }, "geometry": { "type": "Point", "coordinates": [ -122.433300000008487, 37.763750000983485 ] } },
+{ "type": "Feature", "properties": { "NAME": "Noe Valley FM", "ADDRESS": "3861 24th Street" }, "geometry": { "type": "Point", "coordinates": [ -122.428999999625077, 37.75159000130602 ] } },
+{ "type": "Feature", "properties": { "NAME": "Glen Park FM", "ADDRESS": "2901 Diamond St" }, "geometry": { "type": "Point", "coordinates": [ -122.434099999656468, 37.733500000969691 ] } },
+{ "type": "Feature", "properties": { "NAME": "Yerba Buena FM", "ADDRESS": "51 Yerba Buena Ln" }, "geometry": { "type": "Point", "coordinates": [ -122.404600000204866, 37.785610000482755 ] } }
+]
+}
