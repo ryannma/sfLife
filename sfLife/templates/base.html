@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>SF Life</title>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'css/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/scripta.css' %}">
+        <link href="{% static 'fonts/glyphicons-halflings-regular.ttf' %}">
+        <link href="{% static 'fonts/glyphicons-halflings-regular.woff' %}">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div class=" container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <div style="height:100px;"></div>
+</html>

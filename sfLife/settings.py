@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sfLife',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,7 +54,11 @@ ROOT_URLCONF = 'sfLife.urls'
 
 WSGI_APPLICATION = 'sfLife.wsgi.application'
 
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# TEMPLATE_DIRS = (
+#         os.path.join(PROJECT_ROOT, "/sfLife/sfLife/templates/"),
+#     )
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
