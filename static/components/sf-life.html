@@ -137,6 +137,7 @@
             scores: {},
             computedScores: {},
             watsonFeatures: [],
+            watsonBlocks: [],
             total: 0,
             lastSelectedBlock: null,
             highColor: 'black',
@@ -205,7 +206,7 @@
                             return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
                         })
                         .style("fill", function(d) { /*console.log(i);*/
-                            if (watson && watsonFeatures.indexOf(d.properties.BLOCKGROUP) <= -1) {
+                            if (watson && watsonBlocks.indexOf(d.properties.BLOCKGROUP) <= -1) {
                                 return that.colorBlock(0, 10, that.colorArray);
                             } else {
                                 return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 10, that.colorArray);
@@ -328,7 +329,24 @@
                 //     this.$.ibm.disable = true;
                 // }
             },
+
+      //       {
+      //   "status": "EXCLUDED",
+      //   "solution_ref": "060750329007"
+      // },
+      // {
+      //   "status": "FRONT",
+      //   "solution_ref": "060750124005",
+      //   "shadow_me": [
+      //     "060750120001",
+      //     "060750160001",
+      //     "060750107003",
+      //     "060750264032"
+      //   ]
+      // },
             showWatson: function() {
+                var that = this;
+                this.watsonBlocks = [];
                 var selectedFeatures = [];
                 _.each(this.features, function(feature){
                     if (feature[1]){
@@ -339,7 +357,19 @@
 
                 this.watsonFeatures.selectedFeatures;
                 if (this.shouldCallWatson()) {
-
+                    this.callWatson(selectedFeatures, function(data, error) {
+                        if (error) {
+                            console.log("[ERROR] calling watson : " + e);
+                        } else {
+                            var solutions = data.resolution.solutions;
+                            for (var i; i < solutions.length; i++) {
+                                if (solutions[i].status == "FRONT") {
+                                    that.watsonBlocks.push(solutions.solution_ref);
+                                }
+                            }
+                            draw(true);
+                        }
+                    });
                 } else {
                     alert("Too many features to call Watson");
                 }
