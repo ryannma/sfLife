@@ -61,9 +61,6 @@
         #tooltip tr td:nth-child(2){
             text-align:center;
         }
-        .spinner {
-            background-color: #000;
-        }
     </style>
     <div id="contain" class="top-section">
     <div class="row">
@@ -98,6 +95,10 @@
             scores: {},
             computedScores: {},
             total: 0,
+            lastSelectedBlock: null,
+            highColor: 'black',
+            colorArray: ["#ffeda0", "#fed976", "#fecc5c", "#feb24c", "#f03b20", "#bd0026", "#800026"],
+            map: null,
             ready: function() {
                 var r = new XMLHttpRequest();
                 var that = this;
@@ -112,6 +113,7 @@
                   console.dir(metricData.data)
                   _.map(metricData.data, function(num, key){
                     that.scores[key] = num;
+                    that.computedScores[key] = 0;
                   });
                   console.dir(that.scores);
                 };
@@ -132,6 +134,7 @@
 
                     var map = d3.select(that.$.map).append('svg').attr("width", width)
                     .attr("height", height);
+                    this.map = map;
                     var path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(scale).translate([horizontalOffset, verticalOffset]));
                     d3.json('static/data/AsthmaRates_CB00.json', function(json) {
                         map.selectAll('path')
@@ -145,17 +148,19 @@
                                 arr.push(d.properties);
                                 return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
                             })
-                            .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                            .style("fill", function(d) { /*console.log(i);*/
+                                return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 1, that.colorArray);
+                            })
                             .on('mouseover', function() {
                                 var zip = d3.select(this).attr('class').split('block b').join('');
                                 var ques = d3.select(this).attr('id').split('n').join('');
-                                var score = Math.round(that.calculateScore(zip) * 100) / 10;
+                                var score = Math.round(that.computedScores[zip] * 100) / 10;
                                 console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
 
                                 d3.select(that.$.map).selectAll('p').text('');
-                                for (key in arr) {
-                                    d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
-                                }
+                                // for (key in arr) {
+                                //     d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                // }
                                 d3.select(that.$.map.querySelector('.b' + zip)).style("fill", "purple");
 
                                 // Add tooltip
@@ -169,14 +174,21 @@
                                 d3.select(that.$.tooltip).html(tootipContent)  
                                     .style("left", (d3.event.pageX) + "px")     
                                     .style("top", (d3.event.pageY - 28) + "px");
+                                
+
+                                if (that.lastSelectedBlock != null) {
+                                    d3.select('#n' + lastSelectedBlock).style("fill", colorBlock(that.computedScores[zip], 1, that.colorArray));
+                                }
+                                lastSelectedBlock = ques; //global value for last obj
+                                d3.select('#map .b' + zip).style("fill", that.highColor);
                             })
                             .on('mouseout', function() {
                                 // Remove tooltip on mouse out
                                 d3.select(that.$.tooltip).transition().duration(500).style("opacity", 0);
-
                                 // Deselect block on mouse out
                                 for (key in arr) {
-                                    d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                    d3.select('#n' + lastSelectedBlock).style("fill", that.colorBlock(that.computedScores[key], 1, that.colorArray));
+                                    //d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
                                 }
                             });
                     }); 
@@ -234,32 +246,17 @@
                         feature[1] = !feature[1];
                     }
                 })
-                // var target = that.$.contain;
-                // var opts = {
-                //   lines: 13, // The number of lines to draw
-                //   length: 20, // The length of each line
-                //   width: 10, // The line thickness
-                //   radius: 30, // The radius of the inner circle
-                //   corners: 1, // Corner roundness (0..1)
-                //   rotate: 0, // The rotation offset
-                //   direction: 1, // 1: clockwise, -1: counterclockwise
-                //   color: '#000', // #rgb or #rrggbb or array of colors
-                //   speed: 1, // Rounds per second
-                //   trail: 60, // Afterglow percentage
-                //   shadow: true, // Whether to render a shadow
-                //   hwaccel: false, // Whether to use hardware acceleration
-                //   className: 'spinner', // The CSS class to assign to the spinner
-                //   zIndex: 2e9, // The z-index (defaults to 2000000000)
-                //   top: '50%', // Top position relative to parent
-                //   left: '50%' // Left position relative to parent
-                // };
-                // var spinner = new Spinner(opts).spin(target);
                 _.map(metricData.data, function(num, key){
                     that.computedScores[key] = that.calculateScore(key);
                 });
-                // spinner.stop();
+
                 this.updateTotal();
                 console.dir(that.computedScores);
+            },
+            colorBlock: function(value, max_val, swatch) {
+                    var step_size = Math.round(max_val / swatch.length);
+                    var color = Math.round(value / step_size);
+                    return swatch[Math.min(Math.min(color, swatch.length), swatch.length - 1)]
             }
         });
     </script>
