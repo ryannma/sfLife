@@ -52,3 +52,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# npm-debug logs
+npm-debug.log
