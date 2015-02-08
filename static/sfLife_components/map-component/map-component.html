@@ -1,24 +1,27 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="sample-component">
+<polymer-element name="map-component">
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../../bower_components/d3/d3.min.js"></script>
-  <template>
+    <template>
         <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-        <div id="map" style="width: 600px; height: 400px"></div>
-  </template>
+        <div id="map"></div>
 
-  <script>
+    </template>
+
+    <script>
         Polymer({
             ready: function() {
                 var arr = [];
                 var rates = [];
-                var map = d3.select(document.querySelector('#myMap').webkitShadowRoot).select('#map').append('svg'),
-                    path = d3.geo.path().projection(d3.geo.albers().scale(90000).translate([122, 55]));
+                var map = d3.select('#map').append('svg'),
+                    //path = d3.geo.path().projection(d3.geo.albers().origin([-122.4192, 37.7793]).scale(90000).translate([122, 55]));
+                    path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(90000).translate([122, 55]));
 
-                d3.json('static/data/SF.json', function(json) {
+
+                d3.json('static/data/AsthmaRates_CB00.json', function(json) {
                     map.selectAll('path')
                         .data(json.features)
                         .enter().append('path')
