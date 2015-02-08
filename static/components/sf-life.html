@@ -57,6 +57,7 @@
                 r.onreadystatechange = function () {
                   if (r.readyState != 4 || r.status != 200) return;
                   metricData = JSON.parse(r.responseText);
+                  console.dir(metricData.format);
                   _.each(metricData.format, function(feature){
                     that.features.push([feature, false]);
                   })
