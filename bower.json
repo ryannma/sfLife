@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.4",
-    "bootstrap": "~3.3.2"
+    "bootstrap": "~3.3.2",
+    "d3": "~3.5.4"
   }
 }
