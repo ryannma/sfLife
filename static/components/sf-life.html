@@ -92,7 +92,7 @@
                                 var zip = d3.select(this).attr('class').split('block b').join('');
                                 var ques = d3.select(this).attr('id').split('n').join('');
                                 var score = that.calculateScore(zip);
-                                console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score);
+                                console.log('block ' + zip + ' selected with id ' + ques + ' with score ' + score + ' and total ' + that.total);
 
                                 d3.select(that.$.map).selectAll('p').text('');
                                 for (key in arr) {
@@ -122,7 +122,7 @@
                 } else {
                     score = 0.0;
                 }
-                return score
+                return score;
             },
             updateTotal: function() {
                 console.log("updating total");
