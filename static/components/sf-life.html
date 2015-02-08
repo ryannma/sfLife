@@ -51,7 +51,7 @@
             <paper-toggle-button role="button" aria-pressed="{{transit_selected}}"></paper-toggle-button>
         </div>
       </div>
-      
+
       <div class="col-md-8 right-panel">
           
       </div>
@@ -62,6 +62,25 @@
 
     <script>
         Polymer('sf-life', {
+            unprocessed = require("data.json");
+            data = {}
+            ready: function() {
+            },
+            attached: function() {
+                this.loadData();
+            },
+            loadData: function() {
+                for (i in unprocessed.data.length()){
+                    unprocessed.data[i]
+
+                }
+            },
+            health_selectedChanged: function(oldValue, newValue) {
+                calculate();
+            },
+            health_selectedChanged: function(oldValue, newValue) {
+                calculate();
+            },
 
         });
     </script>
