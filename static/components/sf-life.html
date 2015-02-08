@@ -4,6 +4,7 @@
     <template>
         <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
         <link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
+        <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <style>
@@ -19,6 +20,8 @@
         .option-tab {
         }
     </style>
+
+
     <div class="top-section">
     <div class="row">
       <div class="col-md-4 left-panel">
@@ -26,13 +29,30 @@
             <div flex><h2>EDGE</h2></div>
         </div>
         </br>
-
-        <template repeat="{{ feature in collection }}">
-            <div center horizontal layout class="option-tab">
-                <div flex> Community Gardens </div>
-                <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
+        <div center horizontal layout class="option-tab">
+            <div flex> Community Gardens </div>
+            <paper-toggle-button role="button" aria-pressed="{{gardens_selected}}"></paper-toggle-button>
         </div> 
-        </template>
+            </br>
+        <div center horizontal layout class="option-tab">
+            <div flex> Farmers Markets </div>
+            <paper-toggle-button role="button" aria-pressed="{{markets_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout class="option-tab">
+            <div flex> Health Facility Proximity </div>
+            <paper-toggle-button role="button" aria-pressed="{{health_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout class="option-tab">
+            <div flex> Rent Burden </div>
+            <paper-toggle-button role="button" aria-pressed="{{rentburden_selected}}"></paper-toggle-button>
+        </div> 
+            </br>
+        <div center horizontal layout class="option-tab">
+            <div flex> Transit Frequency </div>
+            <paper-toggle-button role="button" aria-pressed="{{transit_selected}}"></paper-toggle-button>
+        </div>
       </div>
 
       <div class="col-md-8 right-panel">
@@ -45,19 +65,31 @@
 
     <script>
         Polymer('sf-life', {
-            unprocessed = require("data.json");
-            data = {}
-            collection = {}
+            unprocessed: null,
+            data: {},
+            gardens_selected: false,
+            markets_gardens_selected: false,
+            health_selected : false,
+            rentburden_selected: false,
+            transit_selected: false,
 
             ready: function() {
+                console.log(this.response);
             },
             attached: function() {
-                this.loadData();
+                var r = new XMLHttpRequest();
+                r.open("POST", "static/data/SF.json", true);
+                r.onreadystatechange = function () {
+                    console.log(r.responseText)
+                };
             },
-            loadData: function() {
-                for (i in unprocessed.data.length()){
-                    unprocessed.data[i]
-
+            responseChanged: function() {
+                console.log("response changed");
+                self.loadData(this.response)
+            },
+            loadData: function(rawdata) {
+                for (i in rawdata.data.length()){
+                    console.log(rawdata.data[i]);
                 }
             },
             gardens_selectedChanged: function(oldValue, newValue) {
@@ -78,23 +110,6 @@
             calculateScore: function() {
                 total = 0;
                 score = 0;
-                if (gardens_selected) {
-                    total++;
-                    score+=data.
-                }
-                if (markets_selected) {
-                    total++;
-                }
-                if (health_selected) {
-                    total++;
-                }
-                if (rentburden_selected) {
-                    total++;
-                }
-                if (transit_selected) {
-                    total++;
-                }
-
             }
 
         });
