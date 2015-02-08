@@ -99,18 +99,18 @@
 
                     d3.json('static/data/AsthmaRates_CB00.json', function(json) {
                         map.selectAll('path')
-                               .data(json.features)
-                               .enter().append('path')
-                               .attr('d', path)
-                               .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
-                               .attr('class', function(d, i) {
-                                   //console.log('block: ' + d.properties.BLOCKGROUP);
-                                   //   console.log('zip z' + d.properties);
-                                   arr.push(d.properties);
-                                   return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
-                               })
-                               .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
-                               .on('mouseover', function() {
+                                .data(json.features)
+                                .enter().append('path')
+                                .attr('d', path)
+                                .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                                .attr('class', function(d, i) {
+                                    //console.log('block: ' + d.properties.BLOCKGROUP);
+                                    //   console.log('zip z' + d.properties);
+                                    arr.push(d.properties);
+                                    return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
+                                })
+                                .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                                .on('mouseover', function() {
                                     var zip = d3.select(this).attr('class').split('block b').join('');
                                     var ques = d3.select(this).attr('id').split('n').join('');
                                     //console.log('block ' + zip + ' selected with id ' + ques);
@@ -126,7 +126,12 @@
                                     //Sample -- d3.select('#map .z94110').style("fill", "purple");
 
                                     //highlightZip(zip);
-                               });
+                                })
+                                .on('mouseout', function() {
+                                    for (key in arr) {
+                                        d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                    }
+                                });
                     }); 
                 }
                 draw();
