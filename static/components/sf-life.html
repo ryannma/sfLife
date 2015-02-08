@@ -60,9 +60,11 @@
     </div>
     </template>
     <script src="../js/d3.v2.min.js"></script>
+    <script src="../bower_components/require/build/require.min.js"></script>
     <script>
         Polymer('sf-life', {
             ready: function() {
+                var that = this;
                 var arr = [];
                 var rates = [];
                 var width = this.$.map.offsetWidth;
@@ -73,15 +75,34 @@
 
                 d3.json('static/data/AsthmaRates_CB00.json', function(json) {
                     map.selectAll('path')
-                        .data(json.features)
-                        .enter().append('path')
-                        .attr('d', path)
-                        .attr('class', function(d) {
-                            console.log('block: ' + d.properties.BLOCKGROUP);
-                         //   console.log('zip z' + d.properties);
-                            arr.push(d.id);
-                            return 'zip z' + d.id
-                        })
+                           .data(json.features)
+                           .enter().append('path')
+                           .attr('d', path)
+                           .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                           .attr('class', function(d, i) {
+                               console.log('block: ' + d.properties.BLOCKGROUP);
+                               //   console.log('zip z' + d.properties);
+                               arr.push(d.properties);
+                               return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
+                           })
+                           .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                           .on('mouseover', function() {
+                                var zip = d3.select(this).attr('class').split('block b').join('');
+                                var ques = d3.select(this).attr('id').split('n').join('');
+                                console.log('block ' + zip + ' selected with id ' + ques);
+
+                                d3.select(that.$.map).selectAll('p').text('');
+                                for (key in arr) {
+                                    d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                }
+                                d3.select(that.$.map.querySelector('.b' + zip)).style("fill", "purple");
+                                //d3.select(this.$.map).append('p').text('District: ' + zip);
+                                //d3.select(this.$.map).append('p').text('Value: ' + arr[ques].ASTHMARATE);
+
+                                //Sample -- d3.select('#map .z94110').style("fill", "purple");
+
+                                s//highlightZip(zip);
+                           });
                 }); 
             }
 
