@@ -6,6 +6,8 @@
         <link rel="import" href="../bower_components/core-drawer-panel/core-drawer-panel.html">
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../js/vanilla.js"></script>
+        <script src="../js/jquery.min.js"></script>
         <style>
         .left-panel {
             background-color: #45DFBE;
@@ -60,29 +62,89 @@
     </div>
     </template>
     <script src="../js/d3.v2.min.js"></script>
+    <script src="../bower_components/require/build/require.min.js"></script>
     <script>
+        var $j = jQuery.noConflict();
         Polymer('sf-life', {
+            metricData: null,
             ready: function() {
-                var arr = [];
-                var rates = [];
-                var width = this.$.map.offsetWidth;
-                var height = this.$.map.offsetHeight;
-                var map = d3.select(this.$.map).append('svg').attr("width", width)
-                .attr("height", height);
-                var path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(400000).translate([700, 223]));
 
-                d3.json('static/data/AsthmaRates_CB00.json', function(json) {
-                    map.selectAll('path')
-                        .data(json.features)
-                        .enter().append('path')
-                        .attr('d', path)
-                        .attr('class', function(d) {
-                            console.log('block: ' + d.properties.BLOCKGROUP);
-                         //   console.log('zip z' + d.properties);
-                            arr.push(d.id);
-                            return 'zip z' + d.id
-                        })
-                }); 
+
+
+                var r = new XMLHttpRequest();
+                r.open("GET", "static/data/SF.json", true);
+                r.onreadystatechange = function () {
+                  if (r.readyState != 4 || r.status != 200) return;
+                  metricData = JSON.parse(r.responseText);
+                  console.dir(metricData);
+                };
+                var that = this;
+                var draw = function() {
+                    if (that.$.map.querySelector('svg') != undefined) {
+                        that.$.map.querySelector('svg').remove();
+                    }
+                    var arr = [];
+                    var rates = [];
+                    var width = that.$.map.offsetWidth;
+                    var height = that.$.map.offsetHeight;
+                    console.log("height: " + height + " width: " + width);
+
+                    //var scale = width * 354;
+                    var scale = (width/843)*268000;
+                    var horizontalOffset = width / 1.7;
+                    var verticalOffset = height / 3.05;
+                    var map = d3.select(that.$.map).append('svg').attr("width", width)
+                    .attr("height", height);
+                    var path = d3.geo.path().projection(d3.geo.albers().origin([-122.4031949051393, 37.80511854740679]).scale(scale).translate([horizontalOffset, verticalOffset]));
+
+                    d3.json('static/data/AsthmaRates_CB00.json', function(json) {
+                        map.selectAll('path')
+                                .data(json.features)
+                                .enter().append('path')
+                                .attr('d', path)
+                                .attr("id", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                                .attr('class', function(d, i) {
+                                    //console.log('block: ' + d.properties.BLOCKGROUP);
+                                    //   console.log('zip z' + d.properties);
+                                    arr.push(d.properties);
+                                    return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
+                                })
+                                .style("fill", function(d, i){ /*console.log(i);*/ return 'n' + i })
+                                .on('mouseover', function() {
+                                    var zip = d3.select(this).attr('class').split('block b').join('');
+                                    var ques = d3.select(this).attr('id').split('n').join('');
+                                    //console.log('block ' + zip + ' selected with id ' + ques);
+
+                                    d3.select(that.$.map).selectAll('p').text('');
+                                    for (key in arr) {
+                                        d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                    }
+                                    d3.select(that.$.map.querySelector('.b' + zip)).style("fill", "purple");
+                                    //d3.select(this.$.map).append('p').text('District: ' + zip);
+                                    //d3.select(this.$.map).append('p').text('Value: ' + arr[ques].ASTHMARATE);
+
+                                    //Sample -- d3.select('#map .z94110').style("fill", "purple");
+
+                                    //highlightZip(zip);
+                                })
+                                .on('mouseout', function() {
+                                    for (key in arr) {
+                                        d3.select(that.$.map.querySelector('.b' + arr[key].BLOCKGROUP)).style("fill", "black");
+                                    }
+                                });
+                    }); 
+                }
+                draw();
+                $j(window).resize(function() {
+                    if(this.resizeTO) clearTimeout(this.resizeTO);
+                    this.resizeTO = setTimeout(function() {
+                        $j(this).trigger('resizeEnd');
+                    }, 500);
+                });
+
+                $j(window).bind('resizeEnd', function() {
+                    draw();
+                });
             }
 
         });
