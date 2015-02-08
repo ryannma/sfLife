@@ -4,10 +4,4 @@ from . import form
 
 
 def new(request):
-    if request.method == "POST":
-        f = form.SearchForm(request.POST)
-        if f.is_valid():
-            return render(request, 'dashboard.html', {'hcp':f['hcp'],'food':f['food'],'schools':f['schools']})
-    else:
-        f = form.SearchForm()
-    return render(request, 'new.html', {'form': f})
+    return render(request, 'dashboard.html')
