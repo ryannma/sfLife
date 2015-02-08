@@ -19,6 +19,7 @@
     "bootstrap": "~3.3.2",
     "d3": "~3.5.4",
     "paper-toggle-button": "Polymer/paper-toggle-button#~0.5.4",
-    "core-ajax": "Polymer/core-ajax#~0.5.4"
+    "core-ajax": "Polymer/core-ajax#~0.5.4",
+    "underscore": "~1.7.0"
   }
 }
