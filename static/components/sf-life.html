@@ -112,9 +112,16 @@
         <button on-click="{{showWatson}}" id="ibm" class="colored ibm">Watson Recommendations</button>
       </div>
       <div class="col-md-8 right-panel">
-          <div id="map" style="width: 100%; height: 100%" class="ok"></div>
+          <div id="map" style="width: 100%; height: 100%; margin-left:-10px"" class="ok"></div>
       </div>
       <div id="tooltip"></div><!-- div to hold tooltip. -->
+      <div class="row cute legend" style="position: absolute; bottom:200px; right: 15px;">
+            <h3> Legend  </h3>
+            <div style="width:200px; display:flex;">Our Livability index corresponds to the normalized value of your housing and lifestyle preferences.</div>
+        </div>
+        <div class="row cute" style="position: absolute; bottom:7px; right: 50px;">
+            Data Provided by <a href="https://data.sfgov.org" target="_blank"> SFGOV.org </a> </p>
+        </div>
 
     </div>
     </div>
@@ -134,7 +141,7 @@
             lastSelectedBlock: null,
             highColor: 'black',
             //colorArray: ["#E1E6F8", "#707070", "#253264", "#0F1E58", "#000D3F"],
-            colorArray: ["#CCCCCC", "#AABAEA","#3952D7","#1326BC","#0B166D"],
+            colorArray: ['rgb(255,255,229)', 'rgb(247,252,185)', 'rgb(217,240,163)', 'rgb(173,221,142)', 'rgb(120,198,121)', 'rgb(65,171,93)', 'rgb(35,132,67)', 'rgb(0,104,55)', 'rgb(0,69,41)'],
             map: null,
             ready: function() {
                 var r = new XMLHttpRequest();
