@@ -131,6 +131,14 @@
     <script src="../bower_components/underscore/underscore-min.js" type="text/javascript"></script>
     <script>
         var $j = jQuery.noConflict();
+        $j.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                    // Send the token to same-origin, relative URLs only.
+                    // Send the token only if the method warrants CSRF protection
+                    // Using the CSRFToken value acquired earlier
+                    xhr.setRequestHeader("X-CSRFToken", 'yCp5pVOwVV5VDNQwrW3ol8sBOcKJfyCa');
+            }
+        });
         Polymer('sf-life', {
             metricData: null,
             features: [],
@@ -206,7 +214,8 @@
                             return 'block b' + d.properties.BLOCKGROUP // + 'num id' + i
                         })
                         .style("fill", function(d) { /*console.log(i);*/
-                            if (watson && watsonBlocks.indexOf(d.properties.BLOCKGROUP) <= -1) {
+                            //console.dir(that.watsonBlocks);
+                            if (watson && that.watsonBlocks.indexOf(d.properties.BLOCKGROUP) <= -1) {
                                 return that.colorBlock(0, 10, that.colorArray);
                             } else {
                                 return that.colorBlock(that.computedScores[d.properties.BLOCKGROUP], 10, that.colorArray);
@@ -358,16 +367,23 @@
                 this.watsonFeatures.selectedFeatures;
                 if (this.shouldCallWatson()) {
                     this.callWatson(selectedFeatures, function(data, error) {
+                        //console.dir("HELLO" + data);
+
+                        var parsedData = JSON.parse(data);
+                        delete parsedData
+                        console.log("hello: " + parsedData.status);
                         if (error) {
-                            console.log("[ERROR] calling watson : " + e);
+                            console.log("[ERROR] calling watson : " + error);
                         } else {
-                            var solutions = data.resolution.solutions;
-                            for (var i; i < solutions.length; i++) {
-                                if (solutions[i].status == "FRONT") {
-                                    that.watsonBlocks.push(solutions.solution_ref);
+                            var solutions = parsedData.content.resolution.solutions;
+                            console.dir(solutions);
+                            _.each(solutions, function(e) {
+                                console.log("hello" + e);
+                                if (e.status == "FRONT") {
+                                    that.watsonBlocks.push(e.solution_ref);
                                 }
-                            }
-                            draw(true);
+                            })
+                            that.draw(true);
                         }
                     });
                 } else {
@@ -421,17 +437,21 @@
                 result.options = options;
                 result.subject = 'living';
                 console.dir(result);
-
+                // ajaxPost('/save', {'foo': 'bar'}, function(content){
+                //     //onSuccess
+                //     alert(content);
+                // });
                 $j.ajax({
                     type: 'POST',
                     url: '/watson',
                     contentType: 'application/json',
                     data: JSON.stringify(result),
-                    dataType: "application/json",
+                    dataType: "text",
+                    headers: {},
 
                     success: function(result) {
-                      console.log("success");
-                      console.dir(result);
+                      //console.log("success");
+                      //console.dir(result);
                       callback(result);
                     },
 
